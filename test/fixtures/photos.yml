@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  flagged_innapropriate: false
+  image: MyString
+  moderated: false
+
+two:
+  flagged_innapropriate: false
+  image: MyString
+  moderated: false

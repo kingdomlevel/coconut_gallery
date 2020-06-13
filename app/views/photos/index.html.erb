@@ -1,0 +1,11 @@
+<h1>Photos</h1>
+
+<section>
+  <% @photos.each do |photo| %>
+    <%= link_to photo.image, photo_path(photo) %>
+  <%end%>
+</section>
+
+<p>
+<%= link_to "New Photo", new_photo_path%>
+</p>
