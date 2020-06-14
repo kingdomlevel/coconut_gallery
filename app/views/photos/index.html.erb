@@ -2,7 +2,11 @@
 
 <section>
   <% @photos.each do |photo| %>
-    <%= link_to photo.image, photo_path(photo) %>
+    <%= link_to photo_path(photo) do %>
+      <% if photo.picture? %>
+        <%= image_tag photo.picture.thumb.url %>
+        <%end%>
+      <%end%>
   <%end%>
 </section>
 

@@ -19,7 +19,7 @@ class PhotosController < ApplicationController
   end
 
   def form_params
-    params.require(:photo).permit(:image)
+    params.require(:photo).permit(:picture, :flagged_innapropriate, :moderated)
   end
 
 end
