@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_14_121818) do
+ActiveRecord::Schema.define(version: 2020_06_14_160821) do
+
+  create_table "drawings", force: :cascade do |t|
+    t.string "picture"
+    t.integer "photo_id"
+    t.boolean "flagged_innapropriate"
+    t.boolean "moderated"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["photo_id"], name: "index_drawings_on_photo_id"
+  end
 
   create_table "photos", force: :cascade do |t|
     t.boolean "flagged_innapropriate"

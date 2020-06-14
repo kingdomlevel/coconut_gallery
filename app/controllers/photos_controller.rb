@@ -18,6 +18,12 @@ class PhotosController < ApplicationController
     redirect_to root_path
   end
 
+  def drawings
+    @drawing = Drawing.new(form_params)
+    @drawing.save
+    redirect_to root_path
+  end
+
   def form_params
     params.require(:photo).permit(:picture, :flagged_innapropriate, :moderated)
   end
