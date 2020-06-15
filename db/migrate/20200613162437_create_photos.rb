@@ -4,7 +4,6 @@ class CreatePhotos < ActiveRecord::Migration[6.0]
       t.boolean :flagged_innapropriate
       t.string :picture
       t.boolean :moderated
-
       t.timestamps
     end
   end

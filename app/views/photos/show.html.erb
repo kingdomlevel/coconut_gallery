@@ -1,2 +1,4 @@
 <%= image_tag @photo.picture.large.url %>
 <p>details</p>
+
+<%= link_to "Draw me", "/photos/#{@photo.id}/drawings/new"%>

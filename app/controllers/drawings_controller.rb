@@ -1,18 +1,25 @@
 class DrawingsController < ApplicationController
+
+
+
   def index
-    @drawings = Photo.all
+    @drawings = Drawing.all
   end
 
   def show
-    @drawing = Photo.find(params[:id])
+    @drawing = Drawing.find(params[:id])
   end
 
   def new
-    @drawing = Photo.new
+    byebug
+    @photo = Photo.find(params[:photo_id])
+    @drawing = Drawing.new
+    nil 
   end
 
   def create
-    @drawing = Photo.new(form_params)
+
+    @drawing = Drawing.new(form_params)
     @drawing.save
     redirect_to root_path
   end

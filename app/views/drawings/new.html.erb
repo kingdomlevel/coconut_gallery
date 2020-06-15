@@ -1,10 +1,12 @@
 <h1>new drawing</h1>
 
-<%= simple_form_for @drawing do |f| %>
+<%= simple_form_for [@photo, @drawing] do |f| %>
 
   <%= f.input :picture %>
   <%= f.hidden_field :flagged_innapropriate, value: false %>
   <%= f.hidden_field :moderated, value: false %>
+  <%= f.hidden_field :photo_id %>
+
 
 
 
