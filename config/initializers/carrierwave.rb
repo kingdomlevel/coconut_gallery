@@ -1,11 +1,9 @@
 CarrierWave.configure do |config|
-  config.fog_provider = 'fog/aws'
-
   config.fog_credentials = {
-    provider:              'AWS',                        # required
-    aws_access_key_id:     'xxx',                        # required unless using use_iam_profile
-    aws_secret_access_key: 'yyy',                        # required unless using use_iam_profile
-
+    provider:              'AWS',
+    aws_access_key_id:      Rails.application.credentials.send(Rails.env)[:aws_key],
+    aws_secret_access_key:  Rails.application.credentials.send(Rails.env)[:aws_secret],
+    region:                 Rails.application.credentials.send(Rails.env)[:aws_region]
   }
-  config.fog_directory  = 'railsagain'                                      # required  config.fog_attributes = { cache_control: "public, max-age=#{365.days.to_i}" } # optional, defaults to {}
+  config.fog_directory  = Rails.application.credentials.send(Rails.env)[:aws_bucket]
 end
