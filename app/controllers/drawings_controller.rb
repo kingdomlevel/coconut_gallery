@@ -2,9 +2,9 @@ class DrawingsController < ApplicationController
 
 
 
-  def index
-    @drawings = Photo.find(params[:photo_id]).drawings
-  end
+  # def index
+  #   @drawings = Photo.find(params[:photo_id]).drawings
+  # end
 
   def show
     @drawing = Drawing.find(params[:id])
