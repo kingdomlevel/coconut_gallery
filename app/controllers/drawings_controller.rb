@@ -14,7 +14,7 @@ class DrawingsController < ApplicationController
     byebug
     @photo = Photo.find(params[:photo_id])
     @drawing = Drawing.new
-    nil 
+    nil
   end
 
   def create
@@ -25,6 +25,6 @@ class DrawingsController < ApplicationController
   end
 
   def form_params
-    params.require(:drawing).permit(:picture, :flagged_innapropriate, :moderated, :photo)
+    params.require(:drawing).permit(:picture, :flagged_innapropriate, :moderated, :photo_id)
   end
 end
