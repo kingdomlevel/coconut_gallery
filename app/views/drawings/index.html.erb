@@ -1,15 +1,18 @@
-<h1>new photo</h1>
+<h1>drawing</h1>
 
-<%= simple_form_for @photo do |f| %>
+<p>draw a picture!</p>
+
+
+<%= simple_form_for @drawing do |f| %>
 
   <%= f.input :picture %>
   <%= f.hidden_field :flagged_innapropriate, value: false %>
   <%= f.hidden_field :moderated, value: false %>
+  <%= f.hidden_field :photo_id, value: params[:photo_id] %>
+
 
 
 
   <%= f.button :submit %>
 
 <% end %>
-
-<%= javascript_pack_tag 'photo' %>
