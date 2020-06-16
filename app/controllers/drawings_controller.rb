@@ -3,7 +3,7 @@ class DrawingsController < ApplicationController
 
 
   def index
-    @drawings = Drawing.all
+    @drawings = Photo.find(params[:photo_id]).drawings
   end
 
   def show
@@ -11,14 +11,13 @@ class DrawingsController < ApplicationController
   end
 
   def new
-    byebug
     @photo = Photo.find(params[:photo_id])
     @drawing = Drawing.new
     nil
   end
 
+  # POST: handle new drawing from form
   def create
-
     @drawing = Drawing.new(form_params)
     @drawing.save
     redirect_to root_path

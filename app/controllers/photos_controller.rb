@@ -8,10 +8,13 @@ class PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
   end
 
+  # get the new photo form
+  #  renders views/photos/new.html
   def new
     @photo = Photo.new
   end
 
+  #  handle new photo from form
   def create
     @photo = Photo.new(form_params)
     @photo.save

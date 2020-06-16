@@ -1,18 +1,9 @@
 <h1>drawing</h1>
 
-<p>draw a picture!</p>
+<p>hello from drawings/index.html.erb</p>
+<p>list of drawings to go here</p>
 
-
-<%= simple_form_for @drawing do |f| %>
-
-  <%= f.input :picture %>
-  <%= f.hidden_field :flagged_innapropriate, value: false %>
-  <%= f.hidden_field :moderated, value: false %>
-  <%= f.hidden_field :photo_id, value: params[:photo_id] %>
-
-
-
-
-  <%= f.button :submit %>
-
+<% for drawing in @drawings %>
+  picture: <%= drawing.picture %>
+  photo_id: <%= drawing.photo_id%>
 <% end %>
