@@ -5,7 +5,7 @@
   <%= f.input :picture %>
   <%= f.hidden_field :flagged_innapropriate, value: false %>
   <%= f.hidden_field :moderated, value: false %>
-  <%= f.hidden_field :photo_id %>
+  <%= f.hidden_field :photo_id, value: @photo.id %>
 
 
 
