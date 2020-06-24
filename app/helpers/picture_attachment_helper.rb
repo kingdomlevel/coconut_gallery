@@ -1,4 +1,4 @@
-class PictureAttachmentHelper
+module PictureAttachmentHelper
   class << self
     def attach(model,picture)
       base_64_image = picture.gsub!(/^data:.*,/, '')
