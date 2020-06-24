@@ -2,7 +2,7 @@
 
 <%= simple_form_for @photo do |f| %>
 
-  <%= f.input :picture %>
+  <%= f.hidden_field :picture %>
   <%= f.hidden_field :flagged_innapropriate, value: false %>
   <%= f.hidden_field :moderated, value: false %>
 
@@ -20,5 +20,8 @@
 
 </video>
 
+<button id="take-photo">take a photo!</button>
+
+<canvas id="taken-photo" ></canvas>
 
 <%= javascript_pack_tag 'photo' %>
