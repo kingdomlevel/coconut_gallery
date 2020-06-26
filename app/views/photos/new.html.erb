@@ -11,17 +11,17 @@
   <%= f.button :submit %>
 
 <% end %>
-<br>
-<br>
-<br>
-<br>
-<p>camera goes below here</p>
-<video autoplay id="selfie-cam">
 
-</video>
+<section id="camera">
+  <div id="camera-photo-display">
+    <video autoplay id="selfie-cam"></video>
+    <canvas id="taken-photo" ></canvas>
+  </div>
+  <div id="controls">
+    <button id="take-photo">take photo</button>
+    <button id="clear-photo" class="hidden">re-take photo</button>
+  </div>
+</section>
 
-<button id="take-photo">take a photo!</button>
-
-<canvas id="taken-photo" ></canvas>
 
 <%= javascript_pack_tag 'photo' %>
