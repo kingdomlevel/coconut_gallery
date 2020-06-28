@@ -16,9 +16,8 @@ class PhotosController < ApplicationController
 
   #  handle new photo from form
   def create
-    # byebug
     @photo = Photo.new(form_params)
-    PictureAttachmentHelper.attach(@photo,@photo.picture)
+    @photo.picture = PictureAttachmentHelper.convert_data_uri_to_upload(params["photo"]["picture"])
     @photo.save
     redirect_to root_path
   end

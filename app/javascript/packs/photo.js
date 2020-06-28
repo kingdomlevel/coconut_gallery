@@ -24,9 +24,10 @@ newPhotoButton.addEventListener("click", function(event){
   photoCanvas.height = selfieCam.videoHeight;
   
   photoCanvas.getContext("2d").drawImage(selfieCam,0,0);
+  
   const dataURL = photoCanvas.toDataURL();
   hiddenField.value = dataURL;
-  
+
   // display clear photo button, hide take photo button
   clearPhotoButton.classList.remove("hidden")
   newPhotoButton.classList.add("hidden");
