@@ -1,7 +1,15 @@
 
-<%= image_tag @photo.picture.large.url %>
+
 
 <h2>drawings:</h2>
+
+<%= link_to "Draw me", "/photos/#{@photo.id}/drawings/new"%>
+
+<%= link_to "This photo is inappropriate", "/photos/#{@photo.id}/update", method: :edit, data: {confirm: "are you sure?"} %>
+
+<br>
+<%= image_tag @photo.picture.large.url %>
+
 <ul>
 <% for drawing in @photo.drawings %>
     <li>
@@ -10,5 +18,3 @@
     </li>
 <% end %>
 </ul>
-
-<%= link_to "Draw me", "/photos/#{@photo.id}/drawings/new"%>
