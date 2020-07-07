@@ -31,7 +31,7 @@ class PhotosController < ApplicationController
 # flag a picture as inappropriate
   def update 
     @photo = Photo.find(params[:id])
-    @photo.update_attribute(:flagged_innapropriate, false)
+    @photo.update_attribute(:flagged_innapropriate, true)
     redirect_to root_path
   end
 

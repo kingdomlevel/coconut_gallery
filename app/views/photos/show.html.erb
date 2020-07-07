@@ -5,7 +5,9 @@
 
 <%= link_to "Draw me", "/photos/#{@photo.id}/drawings/new"%>
 
-<%= link_to "This photo is inappropriate", "/photos/#{@photo.id}/update", method: :edit, data: {confirm: "are you sure?"} %>
+<% if !@photo.flagged_innapropriate %>
+    <%= link_to "This photo is inappropriate", "/photos/#{@photo.id}", method: :patch, data: {confirm: "are you sure?"} %>
+<% end %>
 
 <br>
 <%= image_tag @photo.picture.large.url %>
