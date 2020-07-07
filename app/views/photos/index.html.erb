@@ -3,7 +3,7 @@
 <section>
   <% @photos.each do |photo| %>
     <%= link_to photo_path(photo) do %>
-      <% if photo.picture? %>
+      <% if photo.picture? && !photo.flagged_innapropriate %>
         <%= image_tag photo.picture.thumb.url %>
         <%end%>
       <%end%>
