@@ -2,14 +2,20 @@
 
 <%= simple_form_for [@photo, @drawing] do |f| %>
 
-  <%= f.input :picture %>
+
   <%= f.hidden_field :flagged_innapropriate, value: false %>
   <%= f.hidden_field :moderated, value: false %>
   <%= f.hidden_field :photo_id, value: @photo.id %>
 
 
-
-
   <%= f.button :submit %>
 
+
+
 <% end %>
+
+<canvas id="new-drawing" ></canvas>
+
+<%= image_tag @photo.picture.large.url , id:"ref-photo"%>
+
+<%= javascript_pack_tag 'drawing' %>
