@@ -1,21 +1,10 @@
 <h1>new drawing</h1>
 
-<%= simple_form_for [@photo, @drawing] do |f| %>
-
-
-  <%= f.hidden_field :flagged_innapropriate, value: false %>
-  <%= f.hidden_field :moderated, value: false %>
-  <%= f.hidden_field :photo_id, value: @photo.id %>
-
-
-  <%= f.button :submit %>
-
-
-
-<% end %>
 
 <canvas id="new-drawing" ></canvas>
 
-<%= image_tag @photo.picture.large.url , id:"ref-photo"%>
+<%= image_tag @photo.picture.large.url , id:"ref-photo", data:{id:@photo.id}%>
+
+<button  id="submit-drawing" >Submit Drawing</button>
 
 <%= javascript_pack_tag 'drawing' %>
