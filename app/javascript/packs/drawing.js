@@ -71,7 +71,15 @@ function mouseEvent(event){
 // making mouse pointer draw relative to canvas position and scale
   const bounds = canvas.getBoundingClientRect();
   mouse.x = event.pageX - bounds.left - scrollX;
-  mouse.y = event.pageY - bounds.left - scrollY;
+  mouse.y = event.pageY - bounds.top - scrollY;
+
+// normalise mouse coordinates to top left position of canvas
+  mouse.x /= bounds.width;
+  mouse.y /= bounds.height;
+
+// scale mouse coordinates to canvas coordinates
+  mouse.x *=canvas.width;
+  mouse.y *= canvas.height;
 
 if(event.type==="mousedown"){
   mouse[mouse.buttonNames[event.which-1]] = true;
