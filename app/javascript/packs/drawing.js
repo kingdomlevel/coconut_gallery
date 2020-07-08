@@ -7,11 +7,14 @@ const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("con
 canvas.width = refPhoto.width;
 canvas.height = refPhoto.height;
 
+canvas.style.width = refPhoto.width;
+canvas.style.height = refPhoto.height;
+
 const context = canvas.getContext("2d");
 
 context.beginPath();
 // context.fillStyle = "red";
-context.rect(10,20,refPhoto.width-10,refPhoto.height-10);
+// context.rect(10,20,refPhoto.width-20,refPhoto.height-20);
 // context.fill();
 
 
@@ -40,25 +43,66 @@ submitButton.addEventListener("click",()=>{
 
 let painting = false;
 
-function startPosition(){
-  painting = true;
-}
-function finishPosition(){
-  painting = false;
-  context.beginPath();
+
+// function startPosition(){
+//   painting = true;
+// }
+// function finishPosition(){
+//   painting = false;
+//   context.beginPath();
+// }
+
+
+
+
+
+const mouse = {
+  x : 0, y : 0,
+  lastX:0, lastY:0,
+  b1:false, b2:false, b3:false,
+  buttonNames: ["b1","b2","b3"]
 }
 
-function draw(e){
-  if(!painting) return;
-  context.lineWidth = 5;
+function mouseEvent(event){
+  // if(!painting) return;
+  context.lineWidth = 1;
   context.lineCap = 'round';
 
-  context.lineTo(e.clientX, e.clientY);
-  context.stroke();
-  context.beginPath();
-  context.moveTo(e.clientX, e.clientY);
+// making mouse pointer draw relative to canvas position and scale
+  const bounds = canvas.getBoundingClientRect();
+  mouse.x = event.pageX - bounds.left - scrollX;
+  mouse.y = event.pageY - bounds.left - scrollY;
+
+if(event.type==="mousedown"){
+  mouse[mouse.buttonNames[event.which-1]] = true;
+}else if(event.type === "mouseup"){
+  mouse[mouse.buttonNames[event.which-1]] = false;
 }
 
-canvas.addEventListener('mousedown', startPosition);
-canvas.addEventListener('mouseup', finishPosition);
-canvas.addEventListener('mousemove', draw);
+
+  // context.lineTo(e.clientX, e.clientY);
+  // context.stroke();
+  // context.beginPath();
+  // context.moveTo(e.clientX, e.clientY);
+
+
+}
+
+
+document.addEventListener('mousedown', mouseEvent);
+document.addEventListener('mouseup', mouseEvent);
+document.addEventListener('mousemove', mouseEvent);
+
+function mainLoop(time){
+  if (mouse.b1){
+    context.beginPath();
+    context.moveTo(mouse.lastX,mouse.lastY);
+    context.lineTo(mouse.x,mouse.y);
+    context.stroke();
+  }
+mouse.lastX = mouse.x;
+mouse.lastY = mouse.y;
+requestAnimationFrame(mainLoop);
+
+}
+requestAnimationFrame(mainLoop);
