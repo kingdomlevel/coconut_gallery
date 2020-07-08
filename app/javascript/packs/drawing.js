@@ -36,29 +36,30 @@ submitButton.addEventListener("click",()=>{
 })
 
 
-// functions for drawing on canvas
+
+context.strokeStyle = "red";
+context.lineWidth = 5;
+context.lineCap = "round";
 
 let painting = false;
 
-function startPosition(){
+
+// functions for drawing on canvas
+canvas.addEventListener('mousedown', (event) => {
   painting = true;
-}
-function finishPosition(){
+  
+  context.moveTo(event.offsetX, event.offsetY);
+  context.beginPath();
+});
+
+canvas.addEventListener('mouseup', (event) => {
   painting = false;
-  context.beginPath();
-}
+});
 
-function draw(e){
-  if(!painting) return;
-  context.lineWidth = 5;
-  context.lineCap = 'round';
+canvas.addEventListener('mousemove', (event) => {
+  if (!painting) return;
 
-  context.lineTo(e.clientX, e.clientY);
+
+  context.lineTo(event.offsetX, event.offsetY);
   context.stroke();
-  context.beginPath();
-  context.moveTo(e.clientX, e.clientY);
-}
-
-canvas.addEventListener('mousedown', startPosition);
-canvas.addEventListener('mouseup', finishPosition);
-canvas.addEventListener('mousemove', draw);
+});
