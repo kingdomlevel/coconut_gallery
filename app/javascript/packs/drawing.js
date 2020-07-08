@@ -5,8 +5,6 @@ const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("con
 
 // set canvas size whenever the photo loads
 refPhoto.onload = function () {
-  console.log("PHOTO ONLOAD");
-
   canvas.width = refPhoto.width;
   canvas.height = refPhoto.height;
 
@@ -97,5 +95,7 @@ submitButton.addEventListener("click", () => {
       "X-CSRF-Token": csrf
     },
     body: JSON.stringify(newDrawing)
+  }).then(() => {
+    window.location.replace(`/photos/${refPhoto.dataset.id}`);
   })
 })
