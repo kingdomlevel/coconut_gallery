@@ -15,7 +15,7 @@
 <ul>
 <% for drawing in @photo.drawings %>
     <li>
-        <%= image_tag drawing.picture.thumb.url %>
+        <%= image_tag drawing.picture.large.url %>
         <%# photo_id: <%= drawing.photo_id%>
     </li>
 <% end %>
