@@ -4,11 +4,8 @@
 
 #ref-photo{
   width: 280px;
-  // position: absolute;
-  // right: 30px;
-  float: right;
-  margin: 30px;
   outline: black 4px solid;
+  grid-area: 1/1;
 }
 #new-drawing{
   // position: absolute;
@@ -20,5 +17,34 @@
 
 #pen-example{
   outline: black 2px solid;
+  display: block;
+}
 
+main {
+  display: flex;
+}
+
+.drawing {
+  width: 50%;
+}
+
+.photo-container {
+  width: 50%;
+  display: grid;
+  place-items: center;
+  height: fit-content;
+  width: fit-content;
+  margin: 30px;
+}
+
+#ref-dot {
+  width: 5px;
+  height: 5px;
+  background-color: red;
+  border-radius: 100%;
+  z-index: 2;
+  position: relative;
+  top: -50%;
+  left: -50%;
+  grid-area: 1/1;
 }

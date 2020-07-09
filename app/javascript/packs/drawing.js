@@ -3,6 +3,7 @@ const canvas = document.querySelector('#new-drawing');
 const submitButton = document.querySelector('#submit-drawing');
 const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
 const penExample = document.querySelector('#pen-example');
+const refDot = document.querySelector('#ref-dot');
 
 // set canvas size whenever the photo loads
 refPhoto.onload = function () {
@@ -53,7 +54,10 @@ function mouseEvent(event) {
   const bounds = canvas.getBoundingClientRect();
   mouse.x = event.pageX - bounds.left - scrollX;
   mouse.y = event.pageY - bounds.top - scrollY;
-
+  
+  refDot.style.left = `${mouse.x}px`;
+  refDot.style.top = `${mouse.y}px`;
+  
   // normalise mouse coordinates to top left position of canvas
   mouse.x /= bounds.width;
   mouse.y /= bounds.height;
@@ -61,6 +65,7 @@ function mouseEvent(event) {
   // scale mouse coordinates to canvas coordinates
   mouse.x *= canvas.width;
   mouse.y *= canvas.height;
+
 
   if (event.type === "mousedown") {
     mouse[mouse.buttonNames[event.which - 1]] = true;
