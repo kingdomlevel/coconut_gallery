@@ -2,6 +2,7 @@ const refPhoto = document.querySelector('#ref-photo');
 const canvas = document.querySelector('#new-drawing');
 const submitButton = document.querySelector('#submit-drawing');
 const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
+const penExample = document.querySelector('#pen-example');
 
 // set canvas size whenever the photo loads
 refPhoto.onload = function () {
@@ -12,14 +13,33 @@ refPhoto.onload = function () {
   canvas.style.height = refPhoto.height;
 }
 
-
+let penSize = 2;
 const context = canvas.getContext("2d");
+const penExampleContext = penExample.getContext("2d");
 
 //// HANDLE DRAWING:
 // set drawing style
 context.strokeStyle = "black";
-context.lineWidth = 2;
+context.lineWidth = penSize;
 context.lineCap = "round";
+
+// change line width
+lineWidth.addEventListener("input", function(){
+  let penSize = lineWidth.value;
+  penExampleContext.lineWidth = penSize;
+  context.lineWidth = penSize;
+  drawExample();
+})
+
+// show example line width
+function drawExample(){
+  penExampleContext.clearRect(0,0,penExample.width,penExample.height);
+  penExampleContext.beginPath();
+  penExampleContext.moveTo(10,10);
+  penExampleContext.lineTo(70,10);
+  penExampleContext.stroke();
+}
+
 
 const mouse = {
   x: 0, y: 0,
