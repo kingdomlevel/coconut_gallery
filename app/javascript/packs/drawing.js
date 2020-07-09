@@ -57,7 +57,7 @@ function mouseEvent(event) {
   
   refDot.style.left = `${mouse.x}px`;
   refDot.style.top = `${mouse.y}px`;
-  
+
   // normalise mouse coordinates to top left position of canvas
   mouse.x /= bounds.width;
   mouse.y /= bounds.height;
@@ -69,6 +69,7 @@ function mouseEvent(event) {
 
   if (event.type === "mousedown") {
     mouse[mouse.buttonNames[event.which - 1]] = true;
+    submitButton.classList.remove("hidden");
   } else if (event.type === "mouseup") {
     mouse[mouse.buttonNames[event.which - 1]] = false;
   }

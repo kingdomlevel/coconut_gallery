@@ -8,8 +8,6 @@
   grid-area: 1/1;
 }
 #new-drawing{
-  // position: absolute;
-  // left: 30px;
   float: left;
   outline: black 4px solid;
   margin: 30px;
@@ -48,4 +46,15 @@ main {
   top: -50%;
   left: -50%;
   grid-area: 1/1;
+}
+
+#submit-drawing {
+    transition: opacity 3s ease;
+    opacity: 1;
+    pointer-events: all;
+}
+
+#submit-drawing.hidden {
+    pointer-events: none;
+    opacity: 0;
 }
