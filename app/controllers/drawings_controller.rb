@@ -18,7 +18,9 @@ class DrawingsController < ApplicationController
 
   # POST: handle new drawing from form
   def create
+
     @drawing = Drawing.new(form_params)
+    @drawing.picture = PictureAttachmentHelper.convert_data_uri_to_upload(params["picture"])
     @drawing.save
     redirect_to root_path
   end

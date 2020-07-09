@@ -1,3 +1,60 @@
 // Place all the styles related to the drawings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+#ref-photo{
+  width: 32vw;
+  outline: black 4px solid;
+  grid-area: 1/1;
+}
+#new-drawing{
+  float: left;
+  outline: black 4px solid;
+  margin: 30px;
+}
+
+#pen-example{
+  outline: black 2px solid;
+  display: block;
+}
+
+main {
+  display: flex;
+}
+
+.drawing {
+  width: 50%;
+}
+
+.photo-container {
+  width: 50%;
+  display: grid;
+  place-items: flex-start;
+  height: fit-content;
+  width: fit-content;
+  margin: 30px;
+  overflow: hidden;
+}
+
+#ref-dot {
+  width: 5px;
+  height: 5px;
+  background-color: red;
+  border-radius: 100%;
+  z-index: 2;
+  position: relative;
+  top: -50%;
+  left: -50%;
+  grid-area: 1/1;
+}
+
+#submit-drawing {
+    transition: opacity 3s ease;
+    opacity: 1;
+    pointer-events: all;
+}
+
+#submit-drawing.hidden {
+    pointer-events: none;
+    opacity: 0;
+}
