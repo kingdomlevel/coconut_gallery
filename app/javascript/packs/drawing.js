@@ -5,6 +5,9 @@ const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("con
 const penExample = document.querySelector('#pen-example');
 const refDot = document.querySelector('#ref-dot');
 
+
+const colourWheelCanvas = document.querySelector('colour-wheel');
+
 // set canvas size whenever the photo loads
 refPhoto.onload = function () {
   canvas.width = refPhoto.width;
@@ -17,6 +20,8 @@ refPhoto.onload = function () {
 let penSize = 2;
 const context = canvas.getContext("2d");
 const penExampleContext = penExample.getContext("2d");
+const colourWheelContext = colourWheelCanvas.getContext("2d");
+
 
 //// HANDLE DRAWING:
 // set drawing style
@@ -41,6 +46,15 @@ function drawExample(){
   penExampleContext.stroke();
 }
 
+// COLOUR WHEEL FUNCTIONS
+//
+// draw a circle
+
+function drawCiricle(red,green,blue,alpha){
+  let radius = 50;
+  let image =
+}
+
 
 const mouse = {
   x: 0, y: 0,
@@ -54,7 +68,7 @@ function mouseEvent(event) {
   const bounds = canvas.getBoundingClientRect();
   mouse.x = event.pageX - bounds.left - scrollX;
   mouse.y = event.pageY - bounds.top - scrollY;
-  
+
   refDot.style.left = `${mouse.x}px`;
   refDot.style.top = `${mouse.y}px`;
 
