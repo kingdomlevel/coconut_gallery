@@ -6,7 +6,7 @@ const penExample = document.querySelector('#pen-example');
 const refDot = document.querySelector('#ref-dot');
 
 
-const colourWheelCanvas = document.querySelector('colour-wheel');
+const colourWheelCanvas = document.querySelector('#colour-wheel');
 
 // set canvas size whenever the photo loads
 refPhoto.onload = function () {
@@ -51,8 +51,31 @@ function drawExample(){
 // draw a circle
 
 function drawCiricle(red,green,blue,alpha){
-  let radius = 50;
-  let image =
+  let wheelRadius = 50;
+  let wheelImage = colourWheelContext.createImageData(2*radius, 2*radius);
+  let wheelData = wheelImage.data;
+
+  for (let x = -wheelRadius; x < wheelRadius; x++){
+    for(let y = -wheelRadius; y < radius; y++){
+      let distance = Math.sqrt(x*x + y*y);
+
+      if (distance > radius){
+        continue;
+      }
+
+      let rowLength = 2*radius;
+      let adjustedX = x + wheelRadius;
+      let adjustedY = y + wheelRadius;
+      let pixelWidth = 4;
+      let index = (adjustedX+(adjustedY*rowLength))*pixelWidth;
+      wheelData[index] = red;
+      wheelData[index+1] = green;
+      wheelData[index+2] = blue;
+      wheelData[index+3] = alpha;
+    }
+  }
+
+  colourWheelContext.putImageData(image,0,0);
 }
 
 

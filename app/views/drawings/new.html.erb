@@ -9,8 +9,20 @@
     <div class="drawing-controls">
       Pen Thickness: <input type="range" id="lineWidth" min="1" max="30"
       value ="2" title="Line Width">
-      Pen Colour:<canvas id="colour-wheel" width="50" height="50"></canvas>
+
       <canvas id="pen-example" width="80" height="30"></canvas>
+    </div>
+    <div class="colour">
+      Pen Colour:
+      <br>
+      Hue: <input type="range" id="hue" min="0" max="360", step="1" value="10" title="hue">
+      <br>
+      Saturation: <input type="range" id="saturation" min="0" max="1", step="0.01" value="1" title="saturation">
+      <br>
+      Value: <input type="range" min="0" max="1", step="0.01" id="value" value="1" title="alpha">
+      <br>
+      Alpha: <input type="range" min="0" max="255" step="1" id="alpha" value="255" title="alpha">
+      <canvas id="colour-wheel" width="50" height="50"></canvas>
     </div>
   </section>
 
