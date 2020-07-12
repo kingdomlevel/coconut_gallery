@@ -1,5 +1,3 @@
-
-
 const refPhoto = document.querySelector('#ref-photo');
 const canvas = document.querySelector('#new-drawing');
 const submitButton = document.querySelector('#submit-drawing');
@@ -20,8 +18,9 @@ refPhoto.onload = function () {
   canvas.style.height = refPhoto.height;
 }
 
-
+// initial pen width
 let penSize = 2;
+// initial pen colour
 let lineColorSelect = "#000000";
 let context = canvas.getContext("2d");
 const penExampleContext = penExample.getContext("2d");
@@ -55,13 +54,8 @@ function watchColorPicker(event){
 }
 
 
-
-
-
-
 // show example line width
 function drawExample(){
-  // penExampleContext.fillStyle(lineColorSelect);
   penExampleContext.clearRect(0,0,penExample.width,penExample.height);
   penExampleContext.beginPath();
   penExampleContext.moveTo(10,10);
@@ -71,7 +65,7 @@ function drawExample(){
 }
 
 
-
+// define mouse object
 const mouse = {
   x: 0, y: 0,
   lastX: 0, lastY: 0,
