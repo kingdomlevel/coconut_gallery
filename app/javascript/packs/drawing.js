@@ -4,7 +4,8 @@ const submitButton = document.querySelector('#submit-drawing');
 const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
 const penExample = document.querySelector('#pen-example');
 const refDot = document.querySelector('#ref-dot');
-const penColor = document.querySelector('#lineColor')
+const penColor = document.querySelector('#lineColor');
+const reset = document.querySelector('#reset');
 
 
 
@@ -64,6 +65,10 @@ function drawExample(){
   penExampleContext.stroke();
 }
 
+// clear drawing canvas
+reset.addEventListener('click',()=>{
+  context.clearRect(0,0,canvas.width,canvas.height);
+})
 
 // define mouse object
 const mouse = {
