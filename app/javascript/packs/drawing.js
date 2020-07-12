@@ -6,7 +6,7 @@ const penExample = document.querySelector('#pen-example');
 const refDot = document.querySelector('#ref-dot');
 
 
-const colourWheelCanvas = document.querySelector('#colour-wheel');
+
 
 // set canvas size whenever the photo loads
 refPhoto.onload = function () {
@@ -17,10 +17,11 @@ refPhoto.onload = function () {
   canvas.style.height = refPhoto.height;
 }
 
+colourWheelCanvas.onload = drawCiricle(currentColour);
+
 let penSize = 2;
 const context = canvas.getContext("2d");
 const penExampleContext = penExample.getContext("2d");
-const colourWheelContext = colourWheelCanvas.getContext("2d");
 
 
 //// HANDLE DRAWING:
@@ -50,32 +51,84 @@ function drawExample(){
 //
 // draw a circle
 
-function drawCiricle(red,green,blue,alpha){
-  let wheelRadius = 50;
-  let wheelImage = colourWheelContext.createImageData(2*radius, 2*radius);
-  let wheelData = wheelImage.data;
+let circleImage = colourWheelContext.createImageData(50,50);
+let ciricleData = circleImage.data;
+let length= 100*100*4;
+for (let i = 0; i < length; i+=4){
+  data[i]=255;
+  data[i+1]=0;
 
-  for (let x = -wheelRadius; x < wheelRadius; x++){
-    for(let y = -wheelRadius; y < radius; y++){
-      let distance = Math.sqrt(x*x + y*y);
+}
 
-      if (distance > radius){
-        continue;
+$(()=>{
+  const colourWheelCanvas = document.querySelector('#colour-wheel');
+  const colourWheelContext = colourWheelCanvas.getContext("2d");
+  // get slider values
+  //
+  let currentColour = {
+    hue:180,
+    saturation:1.0,
+    value:1.0,
+    alpha:255
+  };
+
+  function drawCiricle(red,green,blue,alpha){
+    let wheelRadius = 50;
+    let wheelImage = colourWheelContext.createImageData(2*radius, 2*radius);
+    let wheelData = wheelImage.data;
+
+    for (let x = -wheelRadius; x < wheelRadius; x++){
+      for(let y = -wheelRadius; y < radius; y++){
+        let distance = Math.sqrt(x*x + y*y);
+
+        if (distance > radius){
+          continue;
+        }
+
+        let rowLength = 2*radius;
+        let adjustedX = x + wheelRadius;
+        let adjustedY = y + wheelRadius;
+        let pixelWidth = 4;
+        let index = (adjustedX+(adjustedY*rowLength))*pixelWidth;
+        wheelData[index] = red;
+        wheelData[index+1] = green;
+        wheelData[index+2] = blue;
+        wheelData[index+3] = alpha;
       }
-
-      let rowLength = 2*radius;
-      let adjustedX = x + wheelRadius;
-      let adjustedY = y + wheelRadius;
-      let pixelWidth = 4;
-      let index = (adjustedX+(adjustedY*rowLength))*pixelWidth;
-      wheelData[index] = red;
-      wheelData[index+1] = green;
-      wheelData[index+2] = blue;
-      wheelData[index+3] = alpha;
     }
+
+    colourWheelContext.putImageData(image,0,0);
   }
 
-  colourWheelContext.putImageData(image,0,0);
+})
+
+
+
+// convert hue values to colour
+function hsv2rgb(hue, saturation, value) {
+  let chroma = value * saturation;
+  let hue1 = hue / 60;
+  let x = chroma * (1- Math.abs((hue1 % 2) - 1));
+  let r1, g1, b1;
+  if (hue1 >= 0 && hue1 <= 1) {
+    ([r1, g1, b1] = [chroma, x, 0]);
+  } else if (hue1 >= 1 && hue1 <= 2) {
+    ([r1, g1, b1] = [x, chroma, 0]);
+  } else if (hue1 >= 2 && hue1 <= 3) {
+    ([r1, g1, b1] = [0, chroma, x]);
+  } else if (hue1 >= 3 && hue1 <= 4) {
+    ([r1, g1, b1] = [0, x, chroma]);
+  } else if (hue1 >= 4 && hue1 <= 5) {
+    ([r1, g1, b1] = [x, 0, chroma]);
+  } else if (hue1 >= 5 && hue1 <= 6) {
+    ([r1, g1, b1] = [chroma, 0, x]);
+  }
+
+  let m = value - chroma;
+  let [r,g,b] = [r1+m, g1+m, b1+m];
+
+  // Change r,g,b values from [0,1] to [0,255]
+  return [255*r,255*g,255*b];
 }
 
 
