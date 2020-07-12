@@ -22,10 +22,10 @@ refPhoto.onload = function () {
 
 
 let penSize = 2;
+let lineColorSelect = "#000000";
 let context = canvas.getContext("2d");
 const penExampleContext = penExample.getContext("2d");
-let lineColorSelect = "#000000";
-// let defaultColor = "#lineColor.value";
+
 
 //// HANDLE DRAWING:
 // set drawing style
@@ -47,12 +47,7 @@ penColor.addEventListener("input", updateFirst,false);
 penColor.addEventListener("change",watchColorPicker,false);
 
 function updateFirst(event){
-  // let p = context.strokeStyle;
   let lineColorSelect = event.target.value;
-
-  // if (p){
-  //   p = event.target.value;
-  // }
 }
 
 function watchColorPicker(event){
@@ -68,10 +63,10 @@ function watchColorPicker(event){
 function drawExample(){
   penExampleContext.clearRect(0,0,penExample.width,penExample.height);
   penExampleContext.beginPath();
-  penExampleContext.fillStyle = lineColorSelect;
   penExampleContext.moveTo(10,10);
   penExampleContext.lineTo(70,10);
   penExampleContext.stroke();
+  penExampleContext.fillStyle(lineColorSelect);
 }
 
 
