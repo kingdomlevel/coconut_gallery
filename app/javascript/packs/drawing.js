@@ -48,10 +48,12 @@ penColor.addEventListener("change",watchColorPicker,false);
 
 function updateFirst(event){
   let lineColorSelect = event.target.value;
+  drawExample();
 }
 
 function watchColorPicker(event){
    context.strokeStyle = event.target.value;
+   drawExample();
 }
 
 
