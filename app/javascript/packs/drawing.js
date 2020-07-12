@@ -61,12 +61,13 @@ function watchColorPicker(event){
 
 // show example line width
 function drawExample(){
+  // penExampleContext.fillStyle(lineColorSelect);
   penExampleContext.clearRect(0,0,penExample.width,penExample.height);
   penExampleContext.beginPath();
   penExampleContext.moveTo(10,10);
   penExampleContext.lineTo(70,10);
+  penExampleContext.strokeStyle=context.strokeStyle;
   penExampleContext.stroke();
-  penExampleContext.fillStyle(lineColorSelect);
 }
 
 
