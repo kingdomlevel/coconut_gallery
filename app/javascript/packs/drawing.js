@@ -4,6 +4,11 @@ const submitButton = document.querySelector('#submit-drawing');
 const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
 const penExample = document.querySelector('#pen-example');
 const refDot = document.querySelector('#ref-dot');
+const penColor = document.querySelector('#lineColor');
+const reset = document.querySelector('#reset');
+
+
+
 
 // set canvas size whenever the photo loads
 refPhoto.onload = function () {
@@ -14,15 +19,20 @@ refPhoto.onload = function () {
   canvas.style.height = refPhoto.height;
 }
 
+// initial pen width
 let penSize = 2;
-const context = canvas.getContext("2d");
+// initial pen colour
+let lineColorSelect = "#000000";
+let context = canvas.getContext("2d");
 const penExampleContext = penExample.getContext("2d");
+
 
 //// HANDLE DRAWING:
 // set drawing style
-context.strokeStyle = "black";
+context.strokeStyle = lineColorSelect;
 context.lineWidth = penSize;
 context.lineCap = "round";
+
 
 // change line width
 lineWidth.addEventListener("input", function(){
@@ -32,16 +42,37 @@ lineWidth.addEventListener("input", function(){
   drawExample();
 })
 
+// change line colour
+penColor.addEventListener("input", updateFirst,false);
+penColor.addEventListener("change",watchColorPicker,false);
+
+function updateFirst(event){
+  let lineColorSelect = event.target.value;
+  drawExample();
+}
+
+function watchColorPicker(event){
+   context.strokeStyle = event.target.value;
+   drawExample();
+}
+
+
 // show example line width
 function drawExample(){
   penExampleContext.clearRect(0,0,penExample.width,penExample.height);
   penExampleContext.beginPath();
   penExampleContext.moveTo(10,10);
   penExampleContext.lineTo(70,10);
+  penExampleContext.strokeStyle=context.strokeStyle;
   penExampleContext.stroke();
 }
 
+// clear drawing canvas
+reset.addEventListener('click',()=>{
+  context.clearRect(0,0,canvas.width,canvas.height);
+})
 
+// define mouse object
 const mouse = {
   x: 0, y: 0,
   lastX: 0, lastY: 0,
@@ -54,7 +85,7 @@ function mouseEvent(event) {
   const bounds = canvas.getBoundingClientRect();
   mouse.x = event.pageX - bounds.left - scrollX;
   mouse.y = event.pageY - bounds.top - scrollY;
-  
+
   refDot.style.left = `${mouse.x}px`;
   refDot.style.top = `${mouse.y}px`;
 
