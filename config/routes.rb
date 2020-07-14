@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-
+get "pages/about"
 
   resources :photos do
     resources :drawings
