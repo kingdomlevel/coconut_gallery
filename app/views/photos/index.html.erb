@@ -10,7 +10,7 @@
         </div>
 
           <ul class="sticky-drawings">
-          <% for drawing in photo.drawings %>
+          <% for drawing in photo.drawings.reverse().take(5) %>
               <li>
                   <%= image_tag drawing.picture.large.url %>
                   <%# photo_id: <%= drawing.photo_id%>
