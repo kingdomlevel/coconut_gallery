@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+.navBar{
+  align-items: : center;
+  font-style: bold;
+  font-family: fantasy;
+  font-size: 30px;
+  color: red;
+  background-color: pink;
+}
+.homePage{
+  background-color: lightgreen;
+}

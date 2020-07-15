@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
+get "pages/about"
+
   resources :photos do
     resources :drawings
   end
-  root to: "photos#index"
+  root to: "pages#home"
 
 end
