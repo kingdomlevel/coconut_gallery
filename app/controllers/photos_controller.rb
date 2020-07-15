@@ -19,7 +19,7 @@ class PhotosController < ApplicationController
     @photo = Photo.new(form_params)
     @photo.picture = PictureAttachmentHelper.convert_data_uri_to_upload(params["photo"]["picture"])
     @photo.save
-    redirect_to root_path
+    redirect_to photos_path
   end
 
   def drawings
