@@ -1,11 +1,23 @@
-<h1>Photos</h1>
-
-<section>
+<section id="sticky-scroll">
   <% @photos.each do |photo| %>
-    <%= link_to photo_path(photo) do %>
       <% if photo.picture? && !photo.flagged_innapropriate %>
-        <%= image_tag photo.picture.thumb.url %>
-        <%end%>
+        <article class="photo-drawings-group">
+        <div class="photo-container">
+          <%= link_to photo_path(photo) do %>
+
+            <%= image_tag photo.picture.large.url %>
+          <%end%>
+        </div>
+
+          <ul class="sticky-drawings">
+          <% for drawing in photo.drawings %>
+              <li>
+                  <%= image_tag drawing.picture.large.url %>
+                  <%# photo_id: <%= drawing.photo_id%>
+              </li>
+          <% end %>
+          </ul>
+        </article>
       <%end%>
   <%end%>
 </section>
