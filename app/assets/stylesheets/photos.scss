@@ -75,3 +75,19 @@ input[type=submit].hidden {
         list-style-type: none;
     }
 }
+
+@media (max-width: 720px) {
+    #sticky-scroll {
+        .photo-drawings-group {
+            display: block;
+        }
+        
+        .photo-container {
+            width: 100%;
+            margin: 20px;
+            position: unset;    
+        }
+    }
+
+
+}
