@@ -1,6 +1,9 @@
 <section id="sticky-scroll">
   <% @photos.each do |photo| %>
       <% if photo.picture? && !photo.flagged_innapropriate %>
+      <% if photo != @photos.first %>
+        <hr/>
+      <% end %>
         <article class="photo-drawings-group">
         <div class="photo-container">
           <%= link_to photo_path(photo) do %>
