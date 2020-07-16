@@ -2,6 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+canvas#new-drawing {
+  width: 32vw;
+  height: auto;
+  background-color: white;
+}
+
 #ref-photo{
   width: 32vw;
   outline: black 4px solid;
