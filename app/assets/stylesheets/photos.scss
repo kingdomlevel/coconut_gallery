@@ -55,7 +55,7 @@ input[type=submit].hidden {
         justify-content: space-evenly;
     }
 
-    .photo-drawings-group:nth-child(even) {
+    .photo-drawings-group:nth-child(4n-1) {
         flex-direction: row-reverse;
     }
 
@@ -64,6 +64,8 @@ input[type=submit].hidden {
         position: sticky;
         top: 60px;
         height: fit-content;
+        margin: 20px;
+        border: solid 20px white;
     }
 
     img {
@@ -75,7 +77,22 @@ input[type=submit].hidden {
         display: block;
         max-width: 50%;
         list-style-type: none;
-        // padding: 20px;
+    }
+
+    .sticky-drawings li {
+        margin: 20px 0;
+        border: solid 20px black;
+    }
+
+    hr {
+        width: 60vw;
+        border: solid 4px red;
+        border-radius: 20px;
+        margin: 30px auto;
+    }
+
+    hr:nth-child(4n) {
+        border-color: blue;
     }
 }
 
