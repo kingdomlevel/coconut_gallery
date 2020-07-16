@@ -52,6 +52,7 @@ input[type=submit].hidden {
     .photo-drawings-group {
         display: flex;
         flex-direction: row;
+        justify-content: space-evenly;
     }
 
     .photo-drawings-group:nth-child(even) {
@@ -59,20 +60,22 @@ input[type=submit].hidden {
     }
 
     .photo-container {
-        width: 50%;
-        margin: 20px;
-        position: sticky;    
+        max-width: 50%;
+        position: sticky;
         top: 60px;
+        height: fit-content;
     }
 
     img {
-        height: 80vh;
+        width: 400px;
+        background-color: white;
     }
 
     .sticky-drawings {
         display: block;
-        width: 50%;
+        max-width: 50%;
         list-style-type: none;
+        // padding: 20px;
     }
 }
 

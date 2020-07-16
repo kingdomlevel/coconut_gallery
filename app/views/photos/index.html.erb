@@ -9,14 +9,25 @@
           <%end%>
         </div>
 
-          <ul class="sticky-drawings">
-          <% for drawing in photo.drawings.reverse().take(5) %>
-              <li>
-                  <%= image_tag drawing.picture.large.url %>
-                  <%# photo_id: <%= drawing.photo_id%>
-              </li>
+
+          <% if photo.drawings.length != 0 %>
+            <ul class="sticky-drawings">
+            <% for drawing in photo.drawings.reverse().take(5) %>
+                <li>
+                    <%= image_tag drawing.picture.large.url %>
+                    <%# photo_id: <%= drawing.photo_id%>
+                </li>
+            <% end %>
+            </ul>
+
           <% end %>
-          </ul>
+          <% if photo.drawings.length == 0 %>
+            <div class="no-drawings-msg">
+              <p>
+                😢 no-one has drawn this photo yet! why not <a href="/TODOTHIS"> be the first?</a>
+              </p>
+            </div>
+          <% end %>
         </article>
       <%end%>
   <%end%>
