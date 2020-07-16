@@ -77,6 +77,8 @@ input[type=submit].hidden {
         display: block;
         max-width: 50%;
         list-style-type: none;
+        margin-left: 20px;
+        margin-right: 20px;
     }
 
     .sticky-drawings li {
@@ -93,6 +95,10 @@ input[type=submit].hidden {
 
     hr:nth-child(4n) {
         border-color: blue;
+    }
+
+    .no-drawings-msg {
+        width: 500px;
     }
 }
 
