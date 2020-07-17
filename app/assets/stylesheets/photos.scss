@@ -153,6 +153,66 @@ input[type=submit].hidden {
     }
 }
 
+a.draw-this {
+    display: block;
+    width: fit-content;
+    margin: 10px auto;
+    color: black;
+    padding: 5px;
+    border: solid 2px black;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: transparent;
+    transition: all 0.5s ease;
+}
+
+a.draw-this:hover {
+    background-color: white;
+}
+
+footer.inappropriate {
+    padding: 30px 0 60px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.show-photo {
+    display: flex;
+    margin: 0;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+
+    .photo-container {
+        max-width: 50%;
+        position: sticky;
+        top: 160px;
+        height: fit-content;
+        margin: 0 30px 30px 60px;
+    }
+
+    .photo-container img {
+        width: 400px;
+    }
+
+    .sticky-drawings {
+        display: block;
+        max-width: 50%;
+        list-style-type: none;
+        margin: 5px 60px 5px 30px;
+    }
+
+    .sticky-drawings li {
+        margin: 10px 20px 40px 20px;
+    }
+
+    .sticky-drawings li img {
+        background-color: white;
+        width: 400px;
+    }
+}
+
 @media (max-width: 720px) {
     #sticky-scroll {
         .photo-drawings-group {

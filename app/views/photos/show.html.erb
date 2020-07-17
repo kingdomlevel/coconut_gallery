@@ -1,14 +1,22 @@
 <%= link_to "Draw this!", "/photos/#{@photo.id}/drawings/new", class: "draw-this"%>
 
-<% if !@photo.flagged_innapropriate %>
-    <%= link_to "This photo is inappropriate", "/photos/#{@photo.id}", method: :patch, data: {confirm: "are you sure?"} %>
-<% end %>
-<%= image_tag @photo.picture.large.url %>
+<section class="show-photo">
+    <div class="photo-container">
+        <%= image_tag @photo.picture.large.url %>
+    </div>
 
-<ul>
-<% for drawing in @photo.drawings %>
-    <li>
-        <%= image_tag drawing.picture.large.url %>
-    </li>
-<% end %>
-</ul>
+
+    <ul class="sticky-drawings">
+    <% for drawing in @photo.drawings %>
+        <li>
+            <%= image_tag drawing.picture.large.url %>
+        </li>
+    <% end %>
+    </ul>
+</section>
+
+<footer class="inappropriate">
+    <% if !@photo.flagged_innapropriate %>
+        🚨 <%= link_to "This photo is inappropriate", "/photos/#{@photo.id}", method: :patch, data: {confirm: "are you sure?"} %>
+    <% end %>
+</footer>
