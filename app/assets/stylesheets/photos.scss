@@ -78,6 +78,11 @@ input[type=submit].hidden {
     opacity: 0;
 }
 
+#back-to-top {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
 #sticky-scroll {
     .photo-drawings-group {
         display: flex;
@@ -95,6 +100,12 @@ input[type=submit].hidden {
         top: 60px;
         height: fit-content;
         margin: 40px;
+        transition: border 0.5s ease;
+        border: solid 5px rgba(255, 255, 255, 0);
+    }
+
+    .photo-container:hover {
+        border-color: blue;
     }
 
     img {

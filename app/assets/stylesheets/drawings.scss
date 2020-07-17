@@ -29,8 +29,9 @@ canvas#new-drawing {
   display: block;
 }
 
-main {
+main.new-drawing {
   display: flex;
+  justify-content: center;
 }
 
 .drawing {
