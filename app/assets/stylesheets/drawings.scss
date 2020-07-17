@@ -1,0 +1,101 @@
+// Place all the styles related to the drawings controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+section.drawing {
+    display: flex;
+    flex-direction: column;
+    margin-left: 160px;
+}
+
+canvas#new-drawing {
+  width: 400px;
+  height: auto;
+  background-color: white;
+}
+
+#ref-photo{
+  width: 400px;
+  outline: black 4px solid;
+  grid-area: 1/1;
+  margin-bottom: 120px;
+}
+
+#new-drawing{
+  float: left;
+  outline: black 4px solid;
+  margin: 30px;
+}
+
+main.new-drawing {
+  display: flex;
+  justify-content: center;
+}
+
+.between-panel {
+  min-width: 160px;
+}
+
+.drawing-controls {
+  margin-top: 120px;
+}
+
+.drawing-controls div {
+  margin: 10px 0;
+}
+
+.drawing-controls input[type=range] {
+  width: 80px
+}
+
+#pen-example{
+  outline: black 1px solid;
+}
+
+.ref-photo.photo-container {
+  min-width: 400px;
+  display: grid;
+  place-items: flex-start;
+  height: fit-content;
+  width: fit-content;
+  margin: 30px;
+  overflow: hidden;
+  margin-right: 160px;
+}
+
+#ref-dot {
+  width: 5px;
+  height: 5px;
+  background-color: red;
+  border-radius: 100%;
+  z-index: 2;
+  position: relative;
+  top: -50%;
+  left: -50%;
+  grid-area: 1/1;
+}
+
+#submit-drawing {
+    transition: opacity 3s ease;
+    opacity: 1;
+    pointer-events: all;
+    
+    display: block;
+    margin: 120px auto 0 auto;
+    background-color: transparent;
+    padding: 5px;
+    border: solid 2px black;
+    text-transform: uppercase;
+    transition: all 0.5s ease;
+    height: fit-content;
+    cursor: pointer;
+}
+
+#submit-drawing:hover {
+    background-color: #f6aad0;
+}
+
+#submit-drawing.hidden {
+    pointer-events: none;
+    opacity: 0;
+}
