@@ -13,6 +13,7 @@ const makeSpans = selector => {
 // make spans from title
 makeSpans('header h1');
 makeSpans('.navBar a');
+makeSpans('section#camera #controls button');
 
 document.querySelectorAll("header h1").forEach(function (element) {
     element.childNodes.forEach(function (char) {

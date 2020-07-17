@@ -38,7 +38,7 @@ header h1 {
   font-weight: bold;
   font-size: 1.8em;
   letter-spacing: 0.3em;
-  margin: 0.8em 0 0.4em 0;
+  margin: 0.4em 0 0.4em 0;
 }
 
 header h1 span {
@@ -49,17 +49,19 @@ header h1 span {
 }
 
 header h1 span:nth-child(2n),
-.navBar a:hover span:nth-child(2n) {
+.navBar a:hover span:nth-child(2n),
+section#camera #controls button:hover span:nth-child(2n) {
   color: yellow;
 }
 
 header h1 span:nth-child(3n),
-.navBar a:hover span:nth-child(3n) {
+.navBar a:hover span:nth-child(3n),
+section#camera #controls button:hover span:nth-child(3n) {
   color: red;
 }
 
 .navBar {
-  font-size: 1.4em;
+  font-size: 1.2em;
   padding: 12px;
 }
 
@@ -82,9 +84,11 @@ header h1 span:nth-child(3n),
 
 .homepage {
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
 .homepage form.new_photo {
-  display: none;     
+  display: flex;
+  justify-content: center;
 }
