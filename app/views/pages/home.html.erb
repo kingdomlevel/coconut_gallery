@@ -1,6 +1,36 @@
-<div class="homePage">
+<div class="homepage">
 
-<h1>welcome to coconut gallery</h1>
-<p>on this page we should have an example photo and an example drawing</p>
-<h1><%=link_to "Take A Photo!", new_photo_url %></h1>
+    <%= simple_form_for @photo do |f| %>
+
+    <%= f.hidden_field :picture %>
+    <%= f.hidden_field :flagged_innapropriate, value: false %>
+    <%= f.hidden_field :moderated, value: false %>
+
+
+
+    <%= f.button :submit, class: "hidden", id: "upload-photo" %>
+
+    <% end %>
+
+    <section id="camera">
+    <div id="camera-photo-display">
+        <div id="allow-camera-text">
+            <p>
+                ↖️Coconut Gallery requires camera access.
+            </p>
+            <p>
+                 Click "allow" in your browser to allow access.
+            </p>
+        </div>
+        <video autoplay id="selfie-cam"></video>
+        <canvas id="taken-photo" ></canvas>
+    </div>
+    <div id="controls">
+        <button id="take-photo" class="hidden">take photo</button>
+        <button id="clear-photo" class="hidden">re-take photo</button>
+    </div>
+    </section>
+
 </div>
+
+<%= javascript_pack_tag 'photo' %>

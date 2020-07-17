@@ -79,3 +79,12 @@ header h1 span:nth-child(3n),
   color: blue;
   text-decoration: underline;
 }
+
+.homepage {
+  display: flex;
+  justify-content: center;
+}
+
+.homepage form.new_photo {
+  display: none;     
+}
