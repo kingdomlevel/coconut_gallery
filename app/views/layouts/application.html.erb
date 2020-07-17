@@ -11,12 +11,12 @@
 </head>
 
   <body>
-    <header>
-      <a href="/">
+  <a href="/">
         <h1>
             Coconut Gallery
         </h1>
       </a>
+    <header>
       <nav class="navBar">
         <%= link_to "Home", root_path %>
         <%= link_to "Gallery", photos_path %>
@@ -33,4 +33,5 @@
 </footer>
 
 <%= javascript_pack_tag 'wonkyLogo' %>
+<%= javascript_pack_tag 'stickyHeader' %>
 </html>
