@@ -41,7 +41,7 @@ section#camera #controls button{
     margin: 8px;
     padding: 5px;
     border: solid 2px black;
-    font-size: 1.2em;
+    text-transform: uppercase;
     cursor: pointer;
     transition: all 0.5s ease;
 }
@@ -57,7 +57,7 @@ input[type=submit] {
     margin: 8px;
     padding: 5px;
     border: solid 2px black;
-    font-size: 1.2em;
+    text-transform: uppercase;
     cursor: pointer;
     transition: all 0.5s ease;
 }
