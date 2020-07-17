@@ -1,28 +1,37 @@
-<h1>new drawing</h1>
+<h1 class="page-title">drawing</h1>
+<main class="new-drawing">
 
-<button  id="submit-drawing" class="hidden" >Submit Drawing</button>
-
-<main>
   <section class="drawing">
     <canvas id="new-drawing" ></canvas>
-
-    <div class="drawing-controls">
-      Pen Thickness: <input type="range" id="lineWidth" min="1" max="30"
-      value ="2" title="Line Width">
-
-      <canvas id="pen-example" width="80" height="30"></canvas>
-    </div>
-    <div class="colour">
-      Pen Colour:
-        <label for="lineColor">select a colour</label>
-        <input type="color" name="lineColor"  id="lineColor">
-    </div>
-    <div class="reset-drawing">
-      <button id="reset" name="button">Clear Drawing</button>
-    </div>
   </section>
 
-  <div class="photo-container">
+  <div class="between-panel">
+    <button  id="submit-drawing" class="hidden" >Submit Drawing</button>
+
+    <div class="drawing-controls">
+      <div class="thickness">
+        <canvas id="pen-example" width="40" height="30"></canvas>
+
+        <label for="lineWidth">pen width:</label>
+        <input type="range" id="lineWidth" min="1" max="30"
+        value ="2" title="Line Width">
+
+      </div>
+
+
+      <div class="colour">
+        <label for="lineColor">Pen Colour:</label>
+          <input type="color" name="lineColor"  id="lineColor">
+      </div>
+      <div class="reset-drawing">
+        <button id="reset" name="button">Clear Drawing</button>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="ref-photo photo-container">
     <%= image_tag @photo.picture.large.url , id:"ref-photo", data:{id:@photo.id}%>
     <div id="ref-dot"></div>
   </div>

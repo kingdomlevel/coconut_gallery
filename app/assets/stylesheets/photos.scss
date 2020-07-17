@@ -7,6 +7,10 @@ video#selfie-cam {
     transform: scaleX(-1);
 }
 
+#allow-camera-text.hidden {
+    display: none;
+}
+
 section#camera {
     display: flex;
     flex-direction: column;
@@ -33,11 +37,37 @@ section#camera #controls {
 
 section#camera #controls button{
     grid-area: 1/1;
+    background-color: transparent;
+    margin: 8px;
+    padding: 5px;
+    border: solid 2px black;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+section#camera #controls button:hover {
+    color: blue;
+    background-color: #f6aad0;
+    border-color: blue;
+}
+
+input[type=submit] {
+    background-color: transparent;
+    margin: 8px;
+    padding: 5px;
+    border: solid 2px black;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+input[type=submit]:hover {
+    background-color: #f6aad0;
 }
 
 #camera button,
 input[type=submit] {
-    transition: opacity 0.5s ease;
     opacity: 1;
     pointer-events: all;
 }
@@ -48,31 +78,138 @@ input[type=submit].hidden {
     opacity: 0;
 }
 
+#back-to-top {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
 #sticky-scroll {
     .photo-drawings-group {
         display: flex;
         flex-direction: row;
+        justify-content: space-evenly;
     }
 
-    .photo-drawings-group:nth-child(even) {
+    .photo-drawings-group:nth-child(4n-1) {
         flex-direction: row-reverse;
     }
 
     .photo-container {
-        width: 50%;
-        margin: 20px;
-        position: sticky;    
-        top: 60px;
+        max-width: 50%;
+        position: sticky;
+        top: 120px;
+        height: fit-content;
+        margin: 40px;
+        transition: border 0.5s ease;
+        border: solid 5px rgba(255, 255, 255, 0);
+    }
+
+    .photo-container:hover {
+        border-color: blue;
     }
 
     img {
-        height: 80vh;
+        width: 400px;
+        background-color: white;
     }
 
     .sticky-drawings {
         display: block;
-        width: 50%;
+        max-width: 50%;
         list-style-type: none;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .sticky-drawings li {
+        margin: 40px 20px;
+    }
+
+    hr {
+        width: 60vw;
+        border: solid 4px red;
+        border-radius: 20px;
+        margin: 30px auto;
+    }
+
+    hr:nth-child(4n) {
+        border-color: blue;
+    }
+
+    .no-drawings-msg {
+        width: 480px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .no-drawings-msg p {
+        text-align: center;
+        max-width: 280px;
+        background-color: rgba(255, 255, 255, 0.4);
+        padding: 20px;
+        font-size: 1.2em;
+        border: solid 1px pink;
+    }
+}
+
+a.draw-this {
+    display: block;
+    width: fit-content;
+    margin: 10px auto;
+    color: black;
+    padding: 5px;
+    border: solid 2px black;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: transparent;
+    transition: all 0.5s ease;
+}
+
+a.draw-this:hover {
+    background-color: white;
+}
+
+footer.inappropriate {
+    padding: 30px 0 60px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.show-photo {
+    display: flex;
+    margin: 0;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+
+    .photo-container {
+        max-width: 50%;
+        position: sticky;
+        top: 160px;
+        height: fit-content;
+        margin: 0 30px 30px 60px;
+    }
+
+    .photo-container img {
+        width: 400px;
+    }
+
+    .sticky-drawings {
+        display: block;
+        max-width: 50%;
+        list-style-type: none;
+        margin: 5px 60px 5px 30px;
+    }
+
+    .sticky-drawings li {
+        margin: 10px 20px 40px 20px;
+    }
+
+    .sticky-drawings li img {
+        background-color: white;
+        width: 400px;
     }
 }
 

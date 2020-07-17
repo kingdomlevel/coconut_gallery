@@ -4,6 +4,7 @@ const newPhotoButton = document.querySelector("button#take-photo");
 const clearPhotoButton = document.querySelector("button#clear-photo");
 const hiddenField = document.querySelector("input#photo_picture");
 const uploadButton = document.querySelector("#upload-photo");
+const allowCameraText = document.querySelector('#allow-camera-text');
 
 const constraints = {
   video:{
@@ -15,6 +16,12 @@ const constraints = {
 navigator.mediaDevices.getUserMedia(constraints)
 .then(stream =>{
   selfieCam.srcObject = stream;
+  newPhotoButton.classList.remove("hidden");
+  allowCameraText.classList.add("hidden");
+})
+.catch(() => {
+  console.log("FATAL: CAMERA ACCESS REFUSED");
+  allowCameraText.classList.remove("hidden")
 });
 
 //  Take photo:

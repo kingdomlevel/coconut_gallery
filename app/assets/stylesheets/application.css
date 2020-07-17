@@ -12,15 +12,110 @@
  *
  *= require_tree .
  *= require_self
+ *= require base
  */
-.navBar{
-  align-items: : center;
-  font-style: bold;
-  font-family: fantasy;
-  font-size: 30px;
-  color: red;
-  background-color: pink;
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  
+  height: 100vh;
+  background: linear-gradient(180deg, #f6aad0 20vh, #f2ffdf 120vh);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
-.homePage{
-  background-color: lightgreen;
+
+header {
+  display: flex;
+  width: 100%;
+  border-bottom: solid 2px black;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+
+  position: sticky;
+  top: 0px;
+  z-index: 2;
+  background-color: #f6aad0;
+}
+
+header.fixed {
+  position: fixed;
+  top: 0px;
+}
+
+h1 {
+  color: blue;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.8em;
+  letter-spacing: 0.3em;
+  margin: 0.4em 0 0.4em 0;
+  text-align: center;
+}
+
+h1 span {
+  position: relative;
+  display: inline-block;
+  min-width: 30px;
+  transition: all 2s ease;
+}
+
+h1 span:nth-child(2n),
+.navBar a:hover span:nth-child(2n),
+section#camera #controls button:hover span:nth-child(2n) {
+  color: yellow;
+}
+
+h1 span:nth-child(3n),
+.navBar a:hover span:nth-child(3n),
+section#camera #controls button:hover span:nth-child(3n) {
+  color: red;
+}
+
+h1.page-title {
+  margin-top: 30px;
+}
+
+.navBar {
+  font-size: 1.2em;
+  padding: 12px;
+}
+
+.navBar a {
+  margin: 0 24px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: solid 2px rgba(255, 255, 255, 0);
+  border-radius: 4px;
+  padding: 3px;
+  transition: all 0.5s ease;
+}
+
+.navBar a:hover {
+  color: blue;
+  text-decoration: underline;
+}
+
+.homepage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.homepage form.new_photo {
+  display: flex;
+  justify-content: center;
+}
+
+main.about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main.about p {
+  margin: 30px 0;
 }

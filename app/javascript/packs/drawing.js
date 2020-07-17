@@ -7,17 +7,11 @@ const refDot = document.querySelector('#ref-dot');
 const penColor = document.querySelector('#lineColor');
 const reset = document.querySelector('#reset');
 
+canvas.width = refPhoto.width;
+canvas.height = refPhoto.height;
 
-
-
-// set canvas size whenever the photo loads
-refPhoto.onload = function () {
-  canvas.width = refPhoto.width;
-  canvas.height = refPhoto.height;
-
-  canvas.style.width = refPhoto.width;
-  canvas.style.height = refPhoto.height;
-}
+canvas.style.width = refPhoto.width;
+canvas.style.height = refPhoto.height;
 
 // initial pen width
 let penSize = 2;
@@ -42,6 +36,9 @@ lineWidth.addEventListener("input", function(){
   drawExample();
 })
 
+// draw once on load:
+drawExample();
+
 // change line colour
 penColor.addEventListener("input", updateFirst,false);
 penColor.addEventListener("change",watchColorPicker,false);
@@ -61,8 +58,8 @@ function watchColorPicker(event){
 function drawExample(){
   penExampleContext.clearRect(0,0,penExample.width,penExample.height);
   penExampleContext.beginPath();
-  penExampleContext.moveTo(10,10);
-  penExampleContext.lineTo(70,10);
+  penExampleContext.moveTo(5,15);
+  penExampleContext.lineTo(35,15);
   penExampleContext.strokeStyle=context.strokeStyle;
   penExampleContext.stroke();
 }
@@ -156,3 +153,14 @@ submitButton.addEventListener("click", () => {
     window.location.replace(`/photos/${refPhoto.dataset.id}`);
   })
 })
+
+
+// set canvas size whenever the photo loads
+window.addEventListener("load", () => {
+  console.log("window load");
+  canvas.width = refPhoto.width;
+  canvas.height = refPhoto.height;
+
+  canvas.style.width = refPhoto.width;
+  canvas.style.height = refPhoto.height;
+});

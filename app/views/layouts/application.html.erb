@@ -11,17 +11,27 @@
 </head>
 
   <body>
-    <div class="navBar">
-      <%= link_to "Home", root_path %>
-      <%= link_to "Gallery", photos_path %>
-      <%= link_to "About", pages_about_url %>
-  </div>
+  <a href="/">
+        <h1 id="title-top">
+            Coconut Gallery
+        </h1>
+      </a>
+    <header>
+      <nav class="navBar">
+        <%= link_to "Home", root_path %>
+        <%= link_to "Gallery", photos_path %>
+        <%= link_to "About", pages_about_url %>
+      </nav>
+    </header>
 
     <%= yield %>
   </body>
 
-  <footer>
+  <%# <footer>
     <p><span>&#169;</span>Niall and John</p>
   <p><a href="mailto: coconutgallery@gmail.com">Email Us Here</a></p>
-</footer>
+</footer> %>
+
+<%= javascript_pack_tag 'wonkyLogo' %>
+<%= javascript_pack_tag 'stickyHeader' %>
 </html>
