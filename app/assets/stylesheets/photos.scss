@@ -7,6 +7,10 @@ video#selfie-cam {
     transform: scaleX(-1);
 }
 
+#allow-camera-text.hidden {
+    display: none;
+}
+
 section#camera {
     display: flex;
     flex-direction: column;
