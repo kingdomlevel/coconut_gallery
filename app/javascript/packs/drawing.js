@@ -36,6 +36,9 @@ lineWidth.addEventListener("input", function(){
   drawExample();
 })
 
+// draw once on load:
+drawExample();
+
 // change line colour
 penColor.addEventListener("input", updateFirst,false);
 penColor.addEventListener("change",watchColorPicker,false);
@@ -55,8 +58,8 @@ function watchColorPicker(event){
 function drawExample(){
   penExampleContext.clearRect(0,0,penExample.width,penExample.height);
   penExampleContext.beginPath();
-  penExampleContext.moveTo(10,10);
-  penExampleContext.lineTo(70,10);
+  penExampleContext.moveTo(5,15);
+  penExampleContext.lineTo(35,15);
   penExampleContext.strokeStyle=context.strokeStyle;
   penExampleContext.stroke();
 }

@@ -1,6 +1,4 @@
-<h2>drawings:</h2>
-
-<%= link_to "Draw me", "/photos/#{@photo.id}/drawings/new"%>
+<%= link_to "Draw this!", "/photos/#{@photo.id}/drawings/new", class: "draw-this"%>
 
 <% if !@photo.flagged_innapropriate %>
     <%= link_to "This photo is inappropriate", "/photos/#{@photo.id}", method: :patch, data: {confirm: "are you sure?"} %>
