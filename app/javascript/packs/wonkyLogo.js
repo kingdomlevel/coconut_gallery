@@ -11,11 +11,11 @@ const makeSpans = selector => {
 }
 
 // make spans from title
-makeSpans('header h1');
+makeSpans('h1');
 makeSpans('.navBar a');
 makeSpans('section#camera #controls button');
 
-document.querySelectorAll("header h1").forEach(function (element) {
+document.querySelectorAll("h1").forEach(function (element) {
     element.childNodes.forEach(function (char) {
         char.style.top = Math.random() * 10 - 5 + "px";
         char.style.transform = "rotate(" + (Math.random() * 50 - 25) + "deg)";

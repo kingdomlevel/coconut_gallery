@@ -32,32 +32,37 @@ header {
   flex-direction: column;
 }
 
-header h1 {
+h1 {
   color: blue;
   text-transform: uppercase;
   font-weight: bold;
   font-size: 1.8em;
   letter-spacing: 0.3em;
   margin: 0.4em 0 0.4em 0;
+  text-align: center;
 }
 
-header h1 span {
+h1 span {
   position: relative;
   display: inline-block;
   min-width: 30px;
   transition: all 2s ease;
 }
 
-header h1 span:nth-child(2n),
+h1 span:nth-child(2n),
 .navBar a:hover span:nth-child(2n),
 section#camera #controls button:hover span:nth-child(2n) {
   color: yellow;
 }
 
-header h1 span:nth-child(3n),
+h1 span:nth-child(3n),
 .navBar a:hover span:nth-child(3n),
 section#camera #controls button:hover span:nth-child(3n) {
   color: red;
+}
+
+h1.page-title {
+  margin-top: 30px;
 }
 
 .navBar {

@@ -1,16 +1,4 @@
-<h1>new photo</h1>
 
-<%= simple_form_for @photo do |f| %>
-
-  <%= f.hidden_field :picture %>
-  <%= f.hidden_field :flagged_innapropriate, value: false %>
-  <%= f.hidden_field :moderated, value: false %>
-
-
-
-  <%= f.button :submit, class: "hidden", id: "upload-photo" %>
-
-<% end %>
 
 <section id="camera">
   <div id="camera-photo-display">
@@ -23,5 +11,16 @@
   </div>
 </section>
 
+<%= simple_form_for @photo do |f| %>
+
+  <%= f.hidden_field :picture %>
+  <%= f.hidden_field :flagged_innapropriate, value: false %>
+  <%= f.hidden_field :moderated, value: false %>
+
+
+
+  <%= f.button :submit, class: "hidden", id: "upload-photo" %>
+
+<% end %>
 
 <%= javascript_pack_tag 'photo' %>
