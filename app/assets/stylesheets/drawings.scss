@@ -31,9 +31,20 @@ main.new-drawing {
   justify-content: center;
 }
 
+.between-panel {
+  min-width: 160px;
+}
 
 .drawing-controls {
-  margin-left: 120px;
+  margin-top: 120px;
+}
+
+.drawing-controls div {
+  margin: 10px 0;
+}
+
+.drawing-controls input[type=range] {
+  width: 80px
 }
 
 #pen-example{
