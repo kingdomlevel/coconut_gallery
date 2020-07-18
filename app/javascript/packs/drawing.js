@@ -108,6 +108,10 @@ document.addEventListener('mousedown', mouseEvent);
 document.addEventListener('mouseup', mouseEvent);
 document.addEventListener('mousemove', mouseEvent);
 
+document.addEventListener('touchstart', mouseEvent);
+document.addEventListener('touchend', mouseEvent);
+document.addEventListener('touchmove', mouseEvent);
+
 // draw loop to repeat
 function mainLoop() {
   // only draw if left click is pressed
