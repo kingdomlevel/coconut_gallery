@@ -1,24 +1,7 @@
-# README
+# Coconut Gallery
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Web app that requests camera access, uploads a photo, and prompts the user to draw other photos using HTML canvas.
 
-Things you may want to cover:
+Written in Ruby on Rails w storage on S3.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![coconut gallery screenshot](https://i.imgur.com/0mgtmda.png)
