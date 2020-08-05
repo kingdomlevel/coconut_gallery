@@ -63,14 +63,14 @@ h1 span {
 h1 span:nth-child(2n),
 .navBar a:hover span:nth-child(2n),
 section#camera #controls button:hover span:nth-child(2n),
-button.get-started:hover span:nth-child(2n) {
+.get-started:hover span:nth-child(2n) {
   color: yellow;
 }
 
 h1 span:nth-child(3n),
 .navBar a:hover span:nth-child(3n),
 section#camera #controls button:hover span:nth-child(3n),
-button.get-started:hover span:nth-child(3n) {
+.get-started:hover span:nth-child(3n) {
   color: red;
 }
 
@@ -149,4 +149,11 @@ section#intro-text button span {
 section#intro-text button span {
   font-size: 1.6em;
   line-height: 1.6;
+}
+
+p.get-started {
+    width: fit-content;
+    margin: auto;
+    padding: 0px 18px;
+    color: black;
 }
