@@ -41,7 +41,7 @@ section#camera #controls {
 }
 
 section#camera #controls button,
-button#get-started {
+button.get-started {
     grid-area: 1/1;
     background-color: transparent;
     margin: 8px;
@@ -53,7 +53,7 @@ button#get-started {
 }
 
 section#camera #controls button:hover,
-button#get-started:hover,
+button.get-started:hover,
 input[type=submit]:hover {
     color: blue;
     background-color: #f6aad0;

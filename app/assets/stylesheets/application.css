@@ -62,13 +62,15 @@ h1 span {
 
 h1 span:nth-child(2n),
 .navBar a:hover span:nth-child(2n),
-section#camera #controls button:hover span:nth-child(2n) {
+section#camera #controls button:hover span:nth-child(2n),
+button.get-started:hover span:nth-child(2n) {
   color: yellow;
 }
 
 h1 span:nth-child(3n),
 .navBar a:hover span:nth-child(3n),
-section#camera #controls button:hover span:nth-child(3n) {
+section#camera #controls button:hover span:nth-child(3n),
+button.get-started:hover span:nth-child(3n) {
   color: red;
 }
 

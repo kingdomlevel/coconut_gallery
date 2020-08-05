@@ -5,7 +5,7 @@ const clearPhotoButton = document.querySelector("button#clear-photo");
 const hiddenField = document.querySelector("input#photo_picture");
 const uploadButton = document.querySelector("#upload-photo");
 const allowCameraText = document.querySelector('#allow-camera-text');
-const getStartedButton = document.querySelector('button#get-started')
+const getStartedButton = document.querySelector('button.get-started')
 const introText = document.querySelector('section#intro-text')
 const cameraSection = document.querySelector('section#camera');
 
