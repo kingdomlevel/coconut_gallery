@@ -67,4 +67,15 @@ clearPhotoButton.addEventListener("click", () => {
   uploadButton.classList.add("hidden");
 });
 
+// cancel stream when:
+//   - nav links clicked
+//   - upload photo button clicked
+//   - title bar (wonky logo) link clicked
+document.querySelectorAll('.navBar a, #upload-photo, body > a').forEach(el => {
+  el.addEventListener('click', () => {
+    if (selfieCam.srcObject) {
+      selfieCam.srcObject.getTracks()[0].stop();
+    }
+  });
+});
 
