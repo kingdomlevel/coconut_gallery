@@ -18,8 +18,7 @@ makeSpans('section#intro-text button');
 makeSpans('section#intro-text p');
 
 wiggle('h1');
-wiggle('section#intro-text p');
-wiggle('section#intro-text button');
+wiggle('section#intro-text .get-started, section#intro-text p');
 
 
 function wiggle(selector) {
