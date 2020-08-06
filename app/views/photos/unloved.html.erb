@@ -1,16 +1,27 @@
-<p>hello unloved photos</p>
+<h1>Nobody has drawn these photos yet! </h1>
+<br>
+<h1>Click on one to be the first</h1>
 <div class="">
 
 <% @photos.each do |photo| %>
     <% if photo.picture? && !photo.flagged_innapropriate %>
 
-      <hr/>
+
 
 
       <div>
         <% if photo.drawings.length == 0 %>
-        
-          <%= image_tag photo.picture.large.url %>
+
+
+        <div class="photo-container">
+          <%= link_to photo_path(photo) do %>
+
+            <%= image_tag photo.picture.large.url %>
+          <%end%>
+        </div>
+          <p>
+            😢 no-one has drawn this photo yet! why not <a href=<%= %"/photos/#{photo.id}/drawings/new" %>> be the first?</a>
+          </p>
           <% end %>
         <% end %>
       </div>
