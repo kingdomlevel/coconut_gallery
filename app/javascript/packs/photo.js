@@ -5,6 +5,9 @@ const clearPhotoButton = document.querySelector("button#clear-photo");
 const hiddenField = document.querySelector("input#photo_picture");
 const uploadButton = document.querySelector("#upload-photo");
 const allowCameraText = document.querySelector('#allow-camera-text');
+const getStartedButton = document.querySelector('button.get-started')
+const introText = document.querySelector('section#intro-text')
+const cameraSection = document.querySelector('section#camera');
 
 const constraints = {
   video:{
@@ -13,16 +16,24 @@ const constraints = {
   }  
 };
 
-navigator.mediaDevices.getUserMedia(constraints)
-.then(stream =>{
-  selfieCam.srcObject = stream;
-  newPhotoButton.classList.remove("hidden");
-  allowCameraText.classList.add("hidden");
+
+getStartedButton.addEventListener("click", () => {
+  // change visibilty of intro / camera sections
+  cameraSection.classList.remove('hidden');
+  introText.classList.add('hidden');
+
+  // request camera access
+  navigator.mediaDevices.getUserMedia(constraints)
+    .then(stream => {
+      selfieCam.srcObject = stream;
+      newPhotoButton.classList.remove("hidden");
+      allowCameraText.classList.add("hidden");
+    })
+    .catch(() => {
+      console.log("FATAL: CAMERA ACCESS REFUSED");
+      allowCameraText.classList.remove("hidden")
+    });
 })
-.catch(() => {
-  console.log("FATAL: CAMERA ACCESS REFUSED");
-  allowCameraText.classList.remove("hidden")
-});
 
 //  Take photo:
 newPhotoButton.addEventListener("click", function(){
@@ -56,4 +67,15 @@ clearPhotoButton.addEventListener("click", () => {
   uploadButton.classList.add("hidden");
 });
 
+// cancel stream when:
+//   - nav links clicked
+//   - upload photo button clicked
+//   - title bar (wonky logo) link clicked
+document.querySelectorAll('.navBar a, #upload-photo, body > a').forEach(el => {
+  el.addEventListener('click', () => {
+    if (selfieCam.srcObject) {
+      selfieCam.srcObject.getTracks()[0].stop();
+    }
+  });
+});
 

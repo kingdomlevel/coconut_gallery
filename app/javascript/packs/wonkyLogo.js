@@ -14,10 +14,18 @@ const makeSpans = selector => {
 makeSpans('h1');
 makeSpans('.navBar a');
 makeSpans('section#camera #controls button');
+makeSpans('section#intro-text button');
+makeSpans('section#intro-text p');
 
-document.querySelectorAll("h1").forEach(function (element) {
-    element.childNodes.forEach(function (char) {
-        char.style.top = Math.random() * 10 - 5 + "px";
-        char.style.transform = "rotate(" + (Math.random() * 50 - 25) + "deg)";
+wiggle('h1');
+wiggle('section#intro-text .get-started, section#intro-text p');
+
+
+function wiggle(selector) {
+    document.querySelectorAll(selector).forEach(function (element) {
+        element.childNodes.forEach(function (char) {
+            char.style.top = Math.random() * 10 - 5 + "px";
+            char.style.transform = "rotate(" + (Math.random() * 50 - 25) + "deg)";
+        });
     });
-});
+} 

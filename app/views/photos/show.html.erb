@@ -7,7 +7,7 @@
 
 
     <ul class="sticky-drawings">
-    <% for drawing in @photo.drawings %>
+    <% for drawing in @photo.drawings.reverse %>
         <li>
             <%= image_tag drawing.picture.large.url %>
         </li>

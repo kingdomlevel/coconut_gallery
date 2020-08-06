@@ -11,6 +11,11 @@ video#selfie-cam {
     display: none;
 }
 
+section#camera.hidden,
+section#intro-text.hidden {
+    display: none;
+}
+
 section#camera {
     display: flex;
     flex-direction: column;
@@ -35,7 +40,8 @@ section#camera #controls {
     display: grid;
 }
 
-section#camera #controls button{
+section#camera #controls button,
+.get-started {
     grid-area: 1/1;
     background-color: transparent;
     margin: 8px;
@@ -46,7 +52,9 @@ section#camera #controls button{
     transition: all 0.5s ease;
 }
 
-section#camera #controls button:hover {
+section#camera #controls button:hover,
+.get-started:hover,
+input[type=submit]:hover {
     color: blue;
     background-color: #f6aad0;
     border-color: blue;
@@ -60,10 +68,6 @@ input[type=submit] {
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.5s ease;
-}
-
-input[type=submit]:hover {
-    background-color: #f6aad0;
 }
 
 #camera button,
