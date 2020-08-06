@@ -69,69 +69,116 @@ reset.addEventListener('click',()=>{
   context.clearRect(0,0,canvas.width,canvas.height);
 })
 
-// define mouse object
-const mouse = {
-  x: 0, y: 0,
-  lastX: 0, lastY: 0,
-  b1: false, b2: false, b3: false,   // 3 mouse buttons
-  buttonNames: ["b1", "b2", "b3"]
+// deal w drawing
+let shouldDraw = false;
+
+const getXProp = (event) => {
+  return event.layerX ? event.layerX : event.touches[0].clientX - event.target.getBoundingClientRect().left;
 }
 
-function mouseEvent(event) {
-  // making mouse pointer draw relative to canvas position and scale
-  const bounds = canvas.getBoundingClientRect();
-  mouse.x = event.pageX - bounds.left - scrollX;
-  mouse.y = event.pageY - bounds.top - scrollY;
-
-  refDot.style.left = `${mouse.x}px`;
-  refDot.style.top = `${mouse.y}px`;
-
-  // normalise mouse coordinates to top left position of canvas
-  mouse.x /= bounds.width;
-  mouse.y /= bounds.height;
-
-  // scale mouse coordinates to canvas coordinates
-  mouse.x *= canvas.width;
-  mouse.y *= canvas.height;
-
-
-  if (event.type === "mousedown") {
-    mouse[mouse.buttonNames[event.which - 1]] = true;
-    submitButton.classList.remove("hidden");
-  } else if (event.type === "mouseup") {
-    mouse[mouse.buttonNames[event.which - 1]] = false;
-  }
+const getYProp = (event) => {
+  return event.layerY ? event.layerY : event.touches[0].clientY - event.target.getBoundingClientRect().left;
 }
 
+const drawStart = (event) => {
+  const xProp = getXProp(event);
+  const yProp = getYProp(event);
+  
+  shouldDraw = true;
+  context.moveTo(xProp, yProp);
+  context.beginPath();
+};
 
-document.addEventListener('mousedown', mouseEvent);
-document.addEventListener('mouseup', mouseEvent);
-document.addEventListener('mousemove', mouseEvent);
+const drawEnd = () => {
+  shouldDraw = false;
+};
 
-document.addEventListener('touchstart', mouseEvent);
-document.addEventListener('touchend', mouseEvent);
-document.addEventListener('touchmove', mouseEvent);
+const drawMove = event => {
+  const xProp = getXProp(event);
+  const yProp = getYProp(event);
+  
+  // move ref dot:
+  refDot.style.left = `${xProp}px`;
+  refDot.style.top = `${yProp}px`;
 
-// draw loop to repeat
-function mainLoop() {
-  // only draw if left click is pressed
-  if (mouse.b1) {
-    context.beginPath();
-    context.moveTo(mouse.lastX, mouse.lastY);
-    context.lineTo(mouse.x, mouse.y);
+  if (shouldDraw) {
+    context.lineTo(xProp, yProp);
     context.stroke();
+    context.beginPath();
+    context.moveTo(xProp, yProp);
   }
-  // update mouse pos
-  mouse.lastX = mouse.x;
-  mouse.lastY = mouse.y;
+};
 
-  // loop
-  requestAnimationFrame(mainLoop);
+canvas.addEventListener("mousedown", drawStart);
+canvas.addEventListener("mouseup", drawEnd);
+canvas.addEventListener("mousemove", drawMove);
+canvas.addEventListener("touchstart", drawStart);
+canvas.addEventListener("touchend", drawEnd);
+canvas.addEventListener("touchmove", drawMove);
 
-}
+// // define mouse object
+// const mouse = {
+//   x: 0, y: 0,
+//   lastX: 0, lastY: 0,
+//   b1: false, b2: false, b3: false,   // 3 mouse buttons
+//   buttonNames: ["b1", "b2", "b3"]
+// }
 
-// call on load
-requestAnimationFrame(mainLoop);
+// function mouseEvent(event) {
+//   // making mouse pointer draw relative to canvas position and scale
+//   const bounds = canvas.getBoundingClientRect();
+//   mouse.x = event.pageX - bounds.left - scrollX;
+//   mouse.y = event.pageY - bounds.top - scrollY;
+
+//   refDot.style.left = `${mouse.x}px`;
+//   refDot.style.top = `${mouse.y}px`;
+
+//   // normalise mouse coordinates to top left position of canvas
+//   mouse.x /= bounds.width;
+//   mouse.y /= bounds.height;
+
+//   // scale mouse coordinates to canvas coordinates
+//   mouse.x *= canvas.width;
+//   mouse.y *= canvas.height;
+
+
+//   if (event.type === "mousedown") {
+//     mouse[mouse.buttonNames[event.which - 1]] = true;
+//     submitButton.classList.remove("hidden");
+//   } else if (event.type === "mouseup") {
+//     mouse[mouse.buttonNames[event.which - 1]] = false;
+//   }
+// }
+
+
+// document.addEventListener('mousedown', mouseEvent);
+// document.addEventListener('mouseup', mouseEvent);
+// document.addEventListener('mousemove', mouseEvent);
+
+// document.addEventListener('touchstart', mouseEvent);
+// document.addEventListener('touchend', mouseEvent);
+// document.addEventListener('touchmove', mouseEvent);
+
+// // draw loop to repeat
+// function mainLoop() {
+//   // only draw if left click is pressed
+//   if (mouse.b1) {
+//     context.beginPath();
+//     context.moveTo(mouse.lastX, mouse.lastY);
+//     context.lineTo(mouse.x, mouse.y);
+//     context.stroke();
+//   }
+//   // update mouse pos
+//   mouse.lastX = mouse.x;
+//   mouse.lastY = mouse.y;
+
+//   // loop
+//   requestAnimationFrame(mainLoop);
+
+// }
+
+// // call on load
+// requestAnimationFrame(mainLoop);
 
 
 
