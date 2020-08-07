@@ -69,15 +69,27 @@ reset.addEventListener('click',()=>{
   context.clearRect(0,0,canvas.width,canvas.height);
 })
 
+
+
 // deal w drawing
 let shouldDraw = false;
 
 const getXProp = (event) => {
-  return event.layerX ? event.layerX : event.touches[0].clientX - event.target.getBoundingClientRect().left;
+  if ("layerX" in event) {
+    // desktop
+    return event.layerX;
+  } else if ("touches" in event) {
+    // mobile
+    return event.touches[0].clientX - event.target.getBoundingClientRect().left;
+  }
 }
 
 const getYProp = (event) => {
-  return event.layerY ? event.layerY : event.touches[0].clientY - event.target.getBoundingClientRect().left;
+  if ("layerX" in event) {
+    return event.layerY;
+  } else if ("touches" in event) {
+    return event.touches[0].clientY - event.target.getBoundingClientRect().top;
+  }
 }
 
 const drawStart = (event) => {
@@ -87,6 +99,7 @@ const drawStart = (event) => {
   shouldDraw = true;
   context.moveTo(xProp, yProp);
   context.beginPath();
+  submitButton.classList.remove("hidden");
 };
 
 const drawEnd = () => {
@@ -116,69 +129,6 @@ canvas.addEventListener("touchstart", drawStart);
 canvas.addEventListener("touchend", drawEnd);
 canvas.addEventListener("touchmove", drawMove);
 
-// // define mouse object
-// const mouse = {
-//   x: 0, y: 0,
-//   lastX: 0, lastY: 0,
-//   b1: false, b2: false, b3: false,   // 3 mouse buttons
-//   buttonNames: ["b1", "b2", "b3"]
-// }
-
-// function mouseEvent(event) {
-//   // making mouse pointer draw relative to canvas position and scale
-//   const bounds = canvas.getBoundingClientRect();
-//   mouse.x = event.pageX - bounds.left - scrollX;
-//   mouse.y = event.pageY - bounds.top - scrollY;
-
-//   refDot.style.left = `${mouse.x}px`;
-//   refDot.style.top = `${mouse.y}px`;
-
-//   // normalise mouse coordinates to top left position of canvas
-//   mouse.x /= bounds.width;
-//   mouse.y /= bounds.height;
-
-//   // scale mouse coordinates to canvas coordinates
-//   mouse.x *= canvas.width;
-//   mouse.y *= canvas.height;
-
-
-//   if (event.type === "mousedown") {
-//     mouse[mouse.buttonNames[event.which - 1]] = true;
-//     submitButton.classList.remove("hidden");
-//   } else if (event.type === "mouseup") {
-//     mouse[mouse.buttonNames[event.which - 1]] = false;
-//   }
-// }
-
-
-// document.addEventListener('mousedown', mouseEvent);
-// document.addEventListener('mouseup', mouseEvent);
-// document.addEventListener('mousemove', mouseEvent);
-
-// document.addEventListener('touchstart', mouseEvent);
-// document.addEventListener('touchend', mouseEvent);
-// document.addEventListener('touchmove', mouseEvent);
-
-// // draw loop to repeat
-// function mainLoop() {
-//   // only draw if left click is pressed
-//   if (mouse.b1) {
-//     context.beginPath();
-//     context.moveTo(mouse.lastX, mouse.lastY);
-//     context.lineTo(mouse.x, mouse.y);
-//     context.stroke();
-//   }
-//   // update mouse pos
-//   mouse.lastX = mouse.x;
-//   mouse.lastY = mouse.y;
-
-//   // loop
-//   requestAnimationFrame(mainLoop);
-
-// }
-
-// // call on load
-// requestAnimationFrame(mainLoop);
 
 
 
@@ -208,7 +158,6 @@ submitButton.addEventListener("click", () => {
 
 // set canvas size whenever the photo loads
 window.addEventListener("load", () => {
-  console.log("window load");
   canvas.width = refPhoto.width;
   canvas.height = refPhoto.height;
 
