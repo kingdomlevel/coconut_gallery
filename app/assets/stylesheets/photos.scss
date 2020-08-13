@@ -257,5 +257,14 @@ footer.inappropriate {
 
 div#unloved-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+
+    .photo-container {
+        transition: border 0.5s ease;
+        border: solid 5px rgba(255, 255, 255, 0);
+    }
+
+    .photo-container:hover {
+        border-color: blue;
+    }
 }
