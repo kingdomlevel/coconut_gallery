@@ -232,3 +232,30 @@ footer.inappropriate {
 
 
 }
+
+
+.unloved.top-text {
+    text-align: center;
+    line-height: 3;
+    font-size: 1.4em;
+
+    p span {
+        display: inline-block;
+        min-width: 0.9em;
+        text-transform: uppercase;
+        color: blue;
+    }
+
+    p span:nth-child(2n) {
+        color: yellow;
+    }
+
+    p span:nth-child(3n) {
+        color: red;
+    }
+}
+
+div#unloved-container {
+    display: flex;
+    justify-content: center;
+}

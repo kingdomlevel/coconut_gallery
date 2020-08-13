@@ -1,27 +1,24 @@
-<h1>Nobody  has  drawn  these  photos  yet! </h1>
-<br>
-<h1>Click  on  one  to  be  the  first</h1>
-<div class="">
+<div class="unloved top-text">
+  <p>Nobody  has  drawn  these  photos  yet! </p>
+
+  <p>Click  on  one  to  be  the  first</p>
+</div>
+
+<div id="unloved-container">
 
   <% @photos.each do |photo| %>
-  <% if photo.picture? && !photo.flagged_innapropriate %>
+    <% if photo.picture? && !photo.flagged_innapropriate && photo.drawings.length == 0 %>
+    
+      
 
+      <div class="photo-container">
+        <%= link_to image_tag(photo.picture.thumb.url), %`/photos/#{photo.id}/drawings/new`%>
+      </div>
 
+      
+
+    <% end %>
+
+  <% end %>
   
-
-  <div>
-    <% if photo.drawings.length == 0 %>
-
-    <div class="photo-container">
-      <%= link_to image_tag(photo.picture.thumb.url), %`/photos/#{photo.id}/drawings/new`%>
-      <%end%>
-    </div>
-    <% end %>
-    <% end %>
-  </div>
-
-
-
-
-
 </div>
