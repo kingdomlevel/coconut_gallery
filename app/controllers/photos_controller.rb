@@ -40,7 +40,7 @@ class PhotosController < ApplicationController
   end
 
 
-# find photos with no drawings
+  # find photos with no drawings
   def unloved
     @photos = Photo.all.reverse()
   end
