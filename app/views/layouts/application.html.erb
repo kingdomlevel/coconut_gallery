@@ -21,17 +21,13 @@
       <nav class="navBar">
         <%= link_to "Home", root_path %>
         <%= link_to "Gallery", photos_path %>
+        <%= link_to "Unloved", "photos/unloved" %>
         <%= link_to "About", pages_about_url %>
       </nav>
     </header>
 
     <%= yield %>
   </body>
-
-  <%# <footer>
-    <p><span>&#169;</span>Niall and John</p>
-  <p><a href="mailto: coconutgallery@gmail.com">Email Us Here</a></p>
-</footer> %>
 
 <%= javascript_pack_tag 'wonkyLogo' %>
 <%= javascript_pack_tag 'stickyHeader' %>
