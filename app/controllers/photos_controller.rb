@@ -29,7 +29,7 @@ class PhotosController < ApplicationController
   end
 
 # flag a picture as inappropriate
-  def update 
+  def update
     @photo = Photo.find(params[:id])
     @photo.update_attribute(:flagged_innapropriate, true)
     redirect_to root_path
@@ -37,6 +37,12 @@ class PhotosController < ApplicationController
 
   def form_params
     params.require(:photo).permit(:picture, :flagged_innapropriate, :moderated)
+  end
+
+
+  # find photos with no drawings
+  def unloved
+    @photos = Photo.all.reverse()
   end
 
 end

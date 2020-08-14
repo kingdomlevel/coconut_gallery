@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 get "pages/about"
+get "photos/unloved", to: "photos#unloved"
 
   resources :photos do
     resources :drawings
