@@ -16,9 +16,11 @@ makeSpans('.navBar a');
 makeSpans('section#camera #controls button');
 makeSpans('section#intro-text button');
 makeSpans('section#intro-text p');
+makeSpans('.unloved.top-text p');
 
 wiggle('h1');
 wiggle('section#intro-text .get-started, section#intro-text p');
+wiggle('.unloved.top-text p');
 
 
 function wiggle(selector) {
