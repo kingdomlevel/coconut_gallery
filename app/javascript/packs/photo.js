@@ -11,8 +11,15 @@ const cameraSection = document.querySelector('section#camera');
 
 const constraints = {
   video:{
-    width:420,
-    height:580
+    width:{
+      min: 420,
+      ideal: 420
+    },
+    height:{
+      min: 580,
+      ideal: 580
+    },
+    facingMode: "user"
   }  
 };
 
