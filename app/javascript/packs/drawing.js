@@ -128,6 +128,7 @@ canvas.addEventListener("mousemove", drawMove);
 canvas.addEventListener("touchstart", drawStart);
 canvas.addEventListener("touchend", drawEnd);
 canvas.addEventListener("touchmove", drawMove);
+canvas.addEventListener("mouseleave", drawEnd);
 
 
 
