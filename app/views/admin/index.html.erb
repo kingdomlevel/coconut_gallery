@@ -10,7 +10,7 @@
 
           <%end%>
             <%= image_tag photo.picture.large.url %>
-            <%= link_to "Delete", photo_path(photo), method: :destroy, data: {confirm: "are you sure?"} %>
+            <%= link_to "Delete", photo_path(photo), method: :delete, data: {confirm: "are you sure?"} %>
             <%= link_to "This photo is fine", "/photos/#{photo.id}", method: :patch, data: {confirm: "are you sure?"} %>
         </div>
 

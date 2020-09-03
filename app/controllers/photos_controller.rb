@@ -35,10 +35,11 @@ class PhotosController < ApplicationController
     redirect_to root_path
   end
 
+# delete a photo
   def destroy
     @photo = Photo.find(params[:id])
     @photo.destroy
-    redirect_to root_path
+    redirect_to "/admin"
   end
 
   def form_params
