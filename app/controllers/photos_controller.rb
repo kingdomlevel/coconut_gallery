@@ -35,6 +35,12 @@ class PhotosController < ApplicationController
     redirect_to root_path
   end
 
+  def destroy
+    @photo = Photo.find(params[:id])
+    @photo.destroy
+    redirect_to root_path
+  end
+
   def form_params
     params.require(:photo).permit(:picture, :flagged_innapropriate, :moderated)
   end

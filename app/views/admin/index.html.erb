@@ -8,8 +8,10 @@
         <div class="photo-container">
           <%= link_to photo_path(photo) do %>
 
-            <%= image_tag photo.picture.large.url %>
           <%end%>
+            <%= image_tag photo.picture.large.url %>
+            <%= link_to "Delete", photo_path(photo), method: :destroy, data: {confirm: "are you sure?"} %>
+            <%= link_to "This photo is fine", "/photos/#{photo.id}", method: :patch, data: {confirm: "are you sure?"} %>
         </div>
 
 
@@ -21,9 +23,11 @@
                 </li>
             <% end %>
             </ul>
+            <div class="actions">
 
+            </div>
           <% end %>
-          
+
         </article>
       <%end%>
   <%end%>
