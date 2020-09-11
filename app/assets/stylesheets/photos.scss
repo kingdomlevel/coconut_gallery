@@ -217,23 +217,6 @@ footer.inappropriate {
     }
 }
 
-@media (max-width: 720px) {
-    #sticky-scroll {
-        .photo-drawings-group {
-            display: block;
-        }
-        
-        .photo-container {
-            width: 100%;
-            margin: 20px;
-            position: unset;    
-        }
-    }
-
-
-}
-
-
 .unloved.top-text {
     text-align: center;
     line-height: 3;

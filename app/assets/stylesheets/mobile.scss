@@ -1,0 +1,13 @@
+@media (max-width: 720px) {
+    #sticky-scroll {
+        article.photo-drawings-group {
+            display: block;
+        }
+        
+        div.photo-container {
+            width: 100%;
+            margin: 20px;
+            position: unset;    
+        }
+    }
+}
