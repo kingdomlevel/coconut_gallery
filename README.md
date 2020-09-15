@@ -14,3 +14,5 @@ Assuming you already have Ruby on Rails installed ([or maybe you don't?](http://
 * install all the gems from Gemfile: `bundle install`
 * run DB migrations: `rails db:migrate`
 * start the server: `rails server`
+
+Running the application requires a secret key to access AWS S3 credentials - [get in touch](mailto:niall@shamgate.co) if you want access!
