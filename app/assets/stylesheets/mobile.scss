@@ -1,3 +1,4 @@
+// HOME PAGE / NAV STYLES:
 @media (max-width: 720px) {
     h1 {
         width: 100%;
@@ -54,11 +55,14 @@
         width: 260px;
         text-align: center;
     }
+}
 
-
+// GALLERY STYLES:
+@media (max-width: 720px) {
     #sticky-scroll {
         article.photo-drawings-group {
-            display: block;
+            flex-direction: column;
+            align-items: center;
         }
         
         div.photo-container {
