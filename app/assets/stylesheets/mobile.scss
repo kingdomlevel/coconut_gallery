@@ -2,7 +2,7 @@
     h1 {
         width: 100%;
         display: block;
-        font-size: 1.6em;
+        font-size: 1.4em;
         margin-bottom: 0;
     }
 
@@ -29,14 +29,30 @@
     section#intro-text {
         margin-top: 10px;
         max-width: 88vw;
+        font-size: 14pt;
+    }
+
+    button.get-started {
+        font-size: 9pt;
+    }
+
+    section#intro-text button {
+        padding: 0px 10px;
+        width: 260px;
     }
 
     section#intro-text p span {
         min-width: 0.2em;
     }
 
+    section#intro-text p span.letter, section#intro-text button span.letter {
+        line-height: 2;
+    }
+
     p.get-started {
-        padding: 0 10px;
+        padding: 0;
+        width: 260px;
+        text-align: center;
     }
 
 
