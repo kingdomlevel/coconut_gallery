@@ -102,24 +102,23 @@ h1 {
   text-align: center;
 }
 
-h1 span {
+h1 span.letter {
   position: relative;
   display: inline-block;
-  min-width: 30px;
   transition: all 2s ease;
 }
 
-h1 span:nth-child(2n),
-.navBar a:hover span:nth-child(2n),
-section#camera #controls button:hover span:nth-child(2n),
-.get-started:hover span:nth-child(2n) {
+h1 span.letter:nth-child(2n),
+.navBar a:hover span.letter:nth-child(2n),
+section#camera #controls button:hover span.letter:nth-child(2n),
+.get-started:hover span.letter:nth-child(2n) {
   color: yellow;
 }
 
-h1 span:nth-child(3n),
-.navBar a:hover span:nth-child(3n),
-section#camera #controls button:hover span:nth-child(3n),
-.get-started:hover span:nth-child(3n) {
+h1 span.letter:nth-child(3n),
+.navBar a:hover span.letter:nth-child(3n),
+section#camera #controls button:hover span.letter:nth-child(3n),
+.get-started:hover span.letter:nth-child(3n) {
   color: red;
 }
 
@@ -185,8 +184,8 @@ section#intro-text button {
   padding: 10px 18px;
 }
 
-section#intro-text p span,
-section#intro-text button span {
+section#intro-text p span.letter,
+section#intro-text button span.letter {
   position: relative;
   line-height: 3;
   text-transform: uppercase;
@@ -195,7 +194,7 @@ section#intro-text button span {
   min-width: 1em;
 }
 
-section#intro-text button span {
+section#intro-text button span.letter {
   font-size: 1.6em;
   line-height: 1.6;
 }
@@ -205,4 +204,12 @@ p.get-started {
     margin: auto;
     padding: 0px 18px;
     color: black;
+}
+
+.word-block {
+  display: inline-block;
+}
+
+span.wide-space {
+  min-width: 0.4em;
 }

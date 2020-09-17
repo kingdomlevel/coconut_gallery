@@ -222,18 +222,18 @@ footer.inappropriate {
     line-height: 3;
     font-size: 1.4em;
 
-    p span {
+    p span.letter {
         display: inline-block;
         min-width: 0.9em;
         text-transform: uppercase;
         color: blue;
     }
 
-    p span:nth-child(2n) {
+    p span.letter:nth-child(2n) {
         color: yellow;
     }
 
-    p span:nth-child(3n) {
+    p span.letter:nth-child(3n) {
         color: red;
     }
 }
