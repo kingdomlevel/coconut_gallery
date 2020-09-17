@@ -1,4 +1,45 @@
 @media (max-width: 720px) {
+    h1 {
+        width: 100%;
+        display: block;
+        font-size: 1.6em;
+        margin-bottom: 0;
+    }
+
+    h1 span {
+        min-width: 2px;
+    }
+
+    header .navBar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav.navBar {
+        padding: 5px;
+        line-height: 0.5;
+    }
+
+    video#selfie-cam {
+        width: 84vw;
+        margin-top: 5vh;
+    }
+
+    section#intro-text {
+        margin-top: 10px;
+        max-width: 88vw;
+    }
+
+    section#intro-text p span {
+        min-width: 0.2em;
+    }
+
+    p.get-started {
+        padding: 0 10px;
+    }
+
+
     #sticky-scroll {
         article.photo-drawings-group {
             display: block;
