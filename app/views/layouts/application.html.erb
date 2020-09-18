@@ -22,7 +22,7 @@
       <nav class="navBar">
         <%= link_to "Home", root_path %>
         <%= link_to "Gallery", photos_path %>
-        <%= link_to "Unloved", photos_unloved_path %>
+        <%= link_to "Unloved", photos_unloved_path if Photo.joins("LEFT JOIN drawings ON drawings.photo_id = photos.id WHERE drawings.id IS NULL AND (photos.flagged_innapropriate = False OR photos.moderated = True)").any?  %>
         <%= link_to "About", pages_about_url %>
       </nav>
     </header>
