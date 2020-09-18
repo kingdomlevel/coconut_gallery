@@ -24,10 +24,10 @@ ActiveRecord::Schema.define(version: 2020_06_15_150253) do
 
   create_table "photos", force: :cascade do |t|
     t.boolean "flagged_innapropriate"
+    t.string "picture"
     t.boolean "moderated"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "picture"
   end
 
 end
