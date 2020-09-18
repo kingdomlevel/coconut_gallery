@@ -29,6 +29,12 @@
                 😢 no-one has drawn this photo yet! why not <a href=<%= %"/photos/#{photo.id}/drawings/new" %>> be the first?</a>
               </p>
             </div>
+          <% elsif photo.drawings.count > 1 %>
+            <div class="no-drawings-msg hidden-desktop">
+              <p>
+                ➕ <a href=<%= %"/photos/#{photo.id}" %>> see more drawings</a>
+              </p>
+            </div>
           <% end %>
         </article>
       <%end%>
