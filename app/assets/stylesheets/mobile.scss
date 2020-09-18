@@ -61,7 +61,7 @@
 @media (max-width: 720px) {
     section#sticky-scroll {
         img {
-            max-width: unset;
+            max-width: 85vw;
         }
 
         article.photo-drawings-group {
@@ -76,8 +76,22 @@
         div.photo-container {
             width: 100%;
             max-width: unset;
-            margin: 20px;
+            margin: 0 20px;
             position: unset;    
+            display: flex;
+            justify-content: center;
+        }
+
+        .sticky-drawings {
+            max-width: 85vw;
+
+            li {
+                margin: 20px 0;
+            }
+        }
+
+        .no-drawings-msg {
+            margin-top: 20px;
         }
 
     }
