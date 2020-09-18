@@ -108,3 +108,33 @@
 
     }
 }
+
+// PHOTO STYLES:
+@media (max-width: 720px) {
+    section.show-photo {
+        flex-direction: column;
+        align-items: center;
+
+        .photo-container {
+            max-width: 85vw;
+            margin: 0;
+            position: unset;
+        }
+
+        .sticky-drawings {
+            max-width: 85vw;
+            margin: 0;
+
+            li {
+                margin: 20px 0;
+            }
+        }
+    }
+}
+
+// NEW DRAWING STYLES:
+@media (max-width: 720px) {
+    main.new-drawing {
+
+    }
+}
