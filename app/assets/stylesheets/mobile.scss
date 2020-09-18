@@ -59,16 +59,26 @@
 
 // GALLERY STYLES:
 @media (max-width: 720px) {
-    #sticky-scroll {
+    section#sticky-scroll {
+        img {
+            max-width: unset;
+        }
+
         article.photo-drawings-group {
             flex-direction: column;
             align-items: center;
         }
+
+        .photo-drawings-group:nth-child(4n-1) {
+            flex-direction: column;
+        }
         
         div.photo-container {
             width: 100%;
+            max-width: unset;
             margin: 20px;
             position: unset;    
         }
+
     }
 }
