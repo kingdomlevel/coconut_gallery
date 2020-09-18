@@ -13,6 +13,9 @@ canvas.height = refPhoto.height;
 canvas.style.width = refPhoto.width;
 canvas.style.height = refPhoto.height;
 
+// register this page as drawing page:
+document.body.classList.add("drawing-page");
+
 // initial pen width
 let penSize = 2;
 // initial pen colour

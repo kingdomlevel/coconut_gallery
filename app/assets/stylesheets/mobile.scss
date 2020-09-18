@@ -134,7 +134,45 @@
 
 // NEW DRAWING STYLES:
 @media (max-width: 720px) {
-    main.new-drawing {
+    body.drawing-page{
+        touch-action: none;
+    }
 
+    h1.page-title {
+        margin-top: 10px;
+    }
+
+    main.new-drawing {
+        flex-direction: column;
+        align-items: center;
+
+        section.drawing {
+            margin-left: unset;
+        }
+
+        canvas#new-drawing {
+            width: 80vw;
+            margin: 10px 0 0 0;
+        }
+
+        .between-panel {
+            min-width: unset;
+            display: flex;
+        }
+
+        button#submit-drawing {
+            margin: 21px;
+            padding: 2px 1px;
+            font-size: 1.2em;
+            width: 100px;
+        }
+
+        .drawing-controls {
+            margin-top: 9px;
+        }
+
+        .drawing-controls div {
+            margin: 0;
+        }
     }
 }
