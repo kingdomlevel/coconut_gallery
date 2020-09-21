@@ -143,16 +143,20 @@
     }
 
     main.new-drawing {
-        flex-direction: column;
-        align-items: center;
+        display: grid;
+        align-items: unset;
+        margin-top: 10px;
 
         section.drawing {
             margin-left: unset;
+            grid-area: 1/1;
+
+            z-index: 2;
         }
 
         canvas#new-drawing {
+            margin: 2px 0 0 2px;
             width: 80vw;
-            margin: 10px 0 0 0;
         }
 
         .between-panel {
@@ -174,5 +178,48 @@
         .drawing-controls div {
             margin: 0;
         }
+
+        div.image-toggle.hidden-desktop {
+            display: flex;
+            align-items: center;
+            height: auto;
+
+            input[type="checkbox"] {
+                width: 25px;
+                height: 25px;
+            }
+        }
+
+        .ref-photo.photo-container {
+            display: contents;
+        }
+
+        #ref-photo {
+            width: 80vw;
+            opacity: 0;
+            margin: 2px 0 0 2px;
+        }
+
+        #ref-photo.ref-visible {
+            opacity: 1;
+            display: block;
+        }
     }
+
+    // main.new-drawing {
+    //     display: grid;
+    //     align-items: unset;
+    // }
+
+    // .ref-photo.photo-container {
+    //     display: contents;
+    // }
+
+    // section.drawing {
+    //     grid-area: 1/1;
+    // }
+
+    // img#ref-photo {
+    //     margin: 2px 0 0 2px;
+    // }
 }
