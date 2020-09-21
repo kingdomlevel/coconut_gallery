@@ -217,40 +217,23 @@ footer.inappropriate {
     }
 }
 
-@media (max-width: 720px) {
-    #sticky-scroll {
-        .photo-drawings-group {
-            display: block;
-        }
-        
-        .photo-container {
-            width: 100%;
-            margin: 20px;
-            position: unset;    
-        }
-    }
-
-
-}
-
-
 .unloved.top-text {
     text-align: center;
     line-height: 3;
     font-size: 1.4em;
 
-    p span {
+    p span.letter {
         display: inline-block;
         min-width: 0.9em;
         text-transform: uppercase;
         color: blue;
     }
 
-    p span:nth-child(2n) {
+    p span.letter:nth-child(2n) {
         color: yellow;
     }
 
-    p span:nth-child(3n) {
+    p span.letter:nth-child(3n) {
         color: red;
     }
 }
@@ -272,4 +255,8 @@ div#unloved-container {
     .photo-container:hover {
         border-color: blue;
     }
+}
+
+#sticky-scroll .no-drawings-msg.hidden-desktop {
+    display: none;
 }
