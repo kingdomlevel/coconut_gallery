@@ -1,0 +1,225 @@
+// HOME PAGE / NAV STYLES:
+@media (max-width: 720px) {
+    h1 {
+        width: 100%;
+        display: block;
+        font-size: 1.4em;
+        margin-bottom: 0;
+    }
+
+    h1 span {
+        min-width: 2px;
+    }
+
+    header .navBar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav.navBar {
+        padding: 5px;
+        line-height: 0.5;
+    }
+
+    video#selfie-cam {
+        width: 84vw;
+        margin-top: 5vh;
+    }
+
+    section#intro-text {
+        margin-top: 10px;
+        max-width: 88vw;
+        font-size: 14pt;
+    }
+
+    button.get-started {
+        font-size: 9pt;
+    }
+
+    section#intro-text button {
+        padding: 0px 10px;
+        width: 260px;
+    }
+
+    section#intro-text p span {
+        min-width: 0.2em;
+    }
+
+    section#intro-text p span.letter, section#intro-text button span.letter {
+        line-height: 2;
+    }
+
+    p.get-started {
+        padding: 0;
+        width: 260px;
+        text-align: center;
+    }
+}
+
+// GALLERY STYLES:
+@media (max-width: 720px) {
+    section#sticky-scroll {
+        .no-drawings-msg.hidden-desktop {
+            display: unset;
+
+            p {
+                margin: auto;
+            }
+        }
+
+        img {
+            max-width: 85vw;
+        }
+
+        article.photo-drawings-group {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .photo-drawings-group:nth-child(4n-1) {
+            flex-direction: column;
+        }
+        
+        div.photo-container {
+            width: 100%;
+            max-width: unset;
+            margin: 0 20px;
+            position: unset;    
+            display: flex;
+            justify-content: center;
+        }
+
+        .sticky-drawings {
+            max-width: 85vw;
+
+            li {
+                margin: 20px 0;
+            }
+        }
+
+        .no-drawings-msg {
+            margin-top: 20px;
+        }
+
+        .sticky-drawings li:not(:first-child){
+            display: none;
+        }
+
+    }
+}
+
+// PHOTO STYLES:
+@media (max-width: 720px) {
+    section.show-photo {
+        flex-direction: column;
+        align-items: center;
+
+        .photo-container {
+            max-width: 85vw;
+            margin: 0;
+            position: unset;
+        }
+
+        .sticky-drawings {
+            max-width: 85vw;
+            margin: 0;
+
+            li {
+                margin: 20px 0;
+            }
+        }
+    }
+}
+
+// NEW DRAWING STYLES:
+@media (max-width: 720px) {
+    body.drawing-page{
+        touch-action: none;
+    }
+
+    h1.page-title {
+        margin-top: 10px;
+    }
+
+    main.new-drawing {
+        display: grid;
+        align-items: unset;
+        margin-top: 10px;
+
+        section.drawing {
+            margin-left: unset;
+            grid-area: 1/1;
+
+            z-index: 2;
+        }
+
+        canvas#new-drawing {
+            margin: 2px 0 0 2px;
+            width: 80vw;
+        }
+
+        .between-panel {
+            min-width: unset;
+            display: flex;
+        }
+
+        button#submit-drawing {
+            margin: 21px;
+            padding: 2px 1px;
+            font-size: 1.2em;
+            width: 100px;
+        }
+
+        .drawing-controls {
+            margin-top: 9px;
+        }
+
+        .drawing-controls div {
+            margin: 0;
+        }
+
+        div.image-toggle.hidden-desktop {
+            display: flex;
+            align-items: center;
+            height: auto;
+
+            input[type="checkbox"] {
+                width: 25px;
+                height: 25px;
+            }
+        }
+
+        .ref-photo.photo-container {
+            display: contents;
+        }
+
+        #ref-photo {
+            width: 80vw;
+            opacity: 0;
+            margin: 2px 0 0 2px;
+        }
+
+        #ref-photo.ref-visible {
+            opacity: 1;
+            display: block;
+        }
+    }
+
+    // main.new-drawing {
+    //     display: grid;
+    //     align-items: unset;
+    // }
+
+    // .ref-photo.photo-container {
+    //     display: contents;
+    // }
+
+    // section.drawing {
+    //     grid-area: 1/1;
+    // }
+
+    // img#ref-photo {
+    //     margin: 2px 0 0 2px;
+    // }
+}

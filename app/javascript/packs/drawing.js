@@ -6,12 +6,16 @@ const penExample = document.querySelector('#pen-example');
 const refDot = document.querySelector('#ref-dot');
 const penColor = document.querySelector('#lineColor');
 const reset = document.querySelector('#reset');
+const imageToggle = document.querySelector('.image-toggle');
 
 canvas.width = refPhoto.width;
 canvas.height = refPhoto.height;
 
 canvas.style.width = refPhoto.width;
 canvas.style.height = refPhoto.height;
+
+// register this page as drawing page:
+document.body.classList.add("drawing-page");
 
 // initial pen width
 let penSize = 2;
@@ -164,4 +168,17 @@ window.addEventListener("load", () => {
 
   canvas.style.width = refPhoto.width;
   canvas.style.height = refPhoto.height;
+});
+
+// listen for image toggle event on mobile
+imageToggle.addEventListener("change", (event) => {
+  if(event.target.checked) {
+    // show image
+    refPhoto.classList.add('ref-visible');
+    canvas.style.opacity = 0.5;
+  } else {
+    // hide image
+    refPhoto.classList.remove('ref-visible')
+    canvas.style.opacity = 1;
+  }
 });
