@@ -13,10 +13,12 @@ const constraints = {
   video:{
     width:{
       min: 420,
+      max: 420,
       ideal: 420
     },
     height:{
       min: 580,
+      max: 580,
       ideal: 580
     },
     facingMode: "user"
