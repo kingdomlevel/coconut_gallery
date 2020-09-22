@@ -25,6 +25,13 @@
     video#selfie-cam {
         width: 84vw;
         margin-top: 5vh;
+        border: solid 1px;
+        border-color: rgba(255, 255, 255, 0);
+    }
+
+    canvas#taken-photo {
+        width: 84vw;
+        margin-top: 5vh;
     }
 
     section#intro-text {
