@@ -21,7 +21,8 @@ const constraints = {
       max: 580,
       ideal: 580
     },
-    facingMode: "user"
+    facingMode: "user",
+    aspectRatio: 0.72413793103
   }  
 };
 
