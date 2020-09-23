@@ -35,6 +35,7 @@
         height: 100%;
         border: solid 1px;
         border-color: rgba(255, 255, 255, 0);
+        object-fit: cover;
     }
 
     canvas#taken-photo {
