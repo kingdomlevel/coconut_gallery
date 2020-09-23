@@ -40,6 +40,7 @@
 
     canvas#taken-photo {
         width: 84vw;
+        object-fit: cover;
     }
 
     section#intro-text {
