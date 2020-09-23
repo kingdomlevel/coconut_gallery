@@ -50,6 +50,7 @@ newPhotoButton.addEventListener("click", function(){
   
   photoCanvas.width = selfieCam.videoWidth;
   photoCanvas.height = selfieCam.videoHeight;
+  photoCanvas.style.transform = "scaleX(-1)";
   
   photoCanvas.getContext("2d").drawImage(selfieCam,0,0);
   
