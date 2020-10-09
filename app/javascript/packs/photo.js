@@ -47,7 +47,8 @@ getStartedButton.addEventListener("click", () => {
 
 //  Take photo:
 newPhotoButton.addEventListener("click", function(){
-  const sx, sy;
+  let sx;
+  let sy;
 
   // handle HTML portriat axes flip
   if (window.screen.orientation.type == "portrait-primary") {
@@ -58,15 +59,15 @@ newPhotoButton.addEventListener("click", function(){
   } else {
     photoCanvas.width = selfieCam.videoWidth;
     photoCanvas.height = selfieCam.videoHeight;
-    sx = (selfieCam.videoHeight / 2) - (photoCanvas.width / 2);
-    sy = (selfieCam.videoWidth / 2) - (photoCanvas.height / 2);
+    sx = (selfieCam.videoWidth / 2) - (photoCanvas.width / 2);
+    sy = (selfieCam.videoHeight / 2) - (photoCanvas.height / 2);
   }
   photoCanvas.style.transform = "scaleX(-1)";
   
   // photoCanvas.getContext("2d").drawImage(selfieCam,0,0);
   // const sx = (selfieCam.videoWidth / 2) - (photoCanvas.width / 2);
   // const sy = (selfieCam.videoHeight / 2) - (photoCanvas.height / 2);
-  debugger;
+  // debugger;
   photoCanvas.getContext("2d").drawImage(
     selfieCam, 
     sx, 
