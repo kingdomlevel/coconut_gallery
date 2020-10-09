@@ -52,7 +52,34 @@ newPhotoButton.addEventListener("click", function(){
   photoCanvas.height = selfieCam.videoHeight;
   photoCanvas.style.transform = "scaleX(-1)";
   
-  photoCanvas.getContext("2d").drawImage(selfieCam,0,0);
+  // photoCanvas.getContext("2d").drawImage(selfieCam,0,0);
+  const sx = (selfieCam.videoWidth / 2) - (photoCanvas.width / 2);
+  const sy = (selfieCam.videoHeight / 2) - (photoCanvas.height / 2);
+  debugger;
+  photoCanvas.getContext("2d").drawImage(
+    selfieCam, 
+    sx, 
+    sy, 
+    photoCanvas.width,  // sWidth
+    photoCanvas.height,   // sHeight
+    0,  // dx
+    0,  // dy
+    photoCanvas.width, // dWidth
+    photoCanvas.height  // dHeight
+  );
+
+  console.log({
+    "selfieCam": selfieCam,
+    "sx": sx,
+    "sy": sy,
+    "selfieCam.videoWidth": selfieCam.videoWidth,
+    "selfieCam.videoHeight": selfieCam.videoHeight,
+    "dx": 0, 
+    "dy": 0, 
+    "photoCanvas.width": photoCanvas.width, 
+    "photoCanvas.height": photoCanvas.height
+  });
+
   
   const dataURL = photoCanvas.toDataURL();
   hiddenField.value = dataURL;
