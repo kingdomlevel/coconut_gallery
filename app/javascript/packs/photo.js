@@ -48,38 +48,17 @@ getStartedButton.addEventListener("click", () => {
 //  Take photo:
 newPhotoButton.addEventListener("click", function(){
   
-  photoCanvas.width = selfieCam.videoWidth;
-  photoCanvas.height = selfieCam.videoHeight;
+  // handle HTML portriat axes flip
+  if (window.screen.orientation.type == "portrait-primary") {
+    photoCanvas.width = selfieCam.videoHeight;
+    photoCanvas.height = selfieCam.videoWidth;
+  } else {
+    photoCanvas.width = selfieCam.videoWidth;
+    photoCanvas.height = selfieCam.videoHeight;
+  }
   photoCanvas.style.transform = "scaleX(-1)";
   
-  // photoCanvas.getContext("2d").drawImage(selfieCam,0,0);
-  const sx = (selfieCam.videoWidth / 2) - (photoCanvas.width / 2);
-  const sy = (selfieCam.videoHeight / 2) - (photoCanvas.height / 2);
-  debugger;
-  photoCanvas.getContext("2d").drawImage(
-    selfieCam, 
-    sx, 
-    sy, 
-    photoCanvas.width,  // sWidth
-    photoCanvas.height,   // sHeight
-    0,  // dx
-    0,  // dy
-    photoCanvas.width, // dWidth
-    photoCanvas.height  // dHeight
-  );
-
-  console.log({
-    "selfieCam": selfieCam,
-    "sx": sx,
-    "sy": sy,
-    "selfieCam.videoWidth": selfieCam.videoWidth,
-    "selfieCam.videoHeight": selfieCam.videoHeight,
-    "dx": 0, 
-    "dy": 0, 
-    "photoCanvas.width": photoCanvas.width, 
-    "photoCanvas.height": photoCanvas.height
-  });
-
+  photoCanvas.getContext("2d").drawImage(selfieCam,0,0);
   
   const dataURL = photoCanvas.toDataURL();
   hiddenField.value = dataURL;
