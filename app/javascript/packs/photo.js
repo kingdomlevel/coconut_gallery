@@ -63,7 +63,7 @@ newPhotoButton.addEventListener("click", function(){
       0,
       photoCanvas.width,  // sWidth
       photoCanvas.height,   // sHeight
-      0,  // dx
+      (sx * -1),  // dx
       0,  // dy
       photoCanvas.height, // dWidth
       ((photoCanvas.height / photoCanvas.width) * photoCanvas.height)  // dHeight
