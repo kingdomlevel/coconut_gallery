@@ -48,37 +48,46 @@ getStartedButton.addEventListener("click", () => {
 //  Take photo:
 newPhotoButton.addEventListener("click", function(){
   let sx;
-  let sy;
 
   // handle HTML portriat axes flip
   if (window.screen.orientation.type == "portrait-primary") {
     photoCanvas.width = selfieCam.videoHeight;
     photoCanvas.height = selfieCam.videoWidth;
+    photoCanvas.style.transform = "scaleX(-1)";
     sx = (selfieCam.videoWidth / 2) - (photoCanvas.width / 2);
-    sy = (selfieCam.videoHeight / 2) - (photoCanvas.height / 2);
+
+    // draw image
+    photoCanvas.getContext("2d").drawImage(
+      selfieCam,
+      sx,
+      0,
+      photoCanvas.width,  // sWidth
+      photoCanvas.height,   // sHeight
+      0,  // dx
+      0,  // dy
+      photoCanvas.height, // dWidth
+      ((photoCanvas.height / photoCanvas.width) * photoCanvas.height)  // dHeight
+    );
   } else {
     photoCanvas.width = selfieCam.videoWidth;
     photoCanvas.height = selfieCam.videoHeight;
+    photoCanvas.style.transform = "scaleX(-1)";
     sx = (selfieCam.videoWidth / 2) - (photoCanvas.width / 2);
-    sy = (selfieCam.videoHeight / 2) - (photoCanvas.height / 2);
+    const sy = (selfieCam.videoHeight / 2) - (photoCanvas.height / 2);
+
+    // draw image
+    photoCanvas.getContext("2d").drawImage(
+      selfieCam,
+      sx,
+      sy,
+      photoCanvas.width,  // sWidth
+      photoCanvas.height,   // sHeight
+      0,  // dx
+      0,  // dy
+      photoCanvas.width, // dWidth
+      photoCanvas.height  // dHeight
+    );
   }
-  photoCanvas.style.transform = "scaleX(-1)";
-  
-  // photoCanvas.getContext("2d").drawImage(selfieCam,0,0);
-  // const sx = (selfieCam.videoWidth / 2) - (photoCanvas.width / 2);
-  // const sy = (selfieCam.videoHeight / 2) - (photoCanvas.height / 2);
-  // debugger;
-  photoCanvas.getContext("2d").drawImage(
-    selfieCam, 
-    sx, 
-    sy, 
-    photoCanvas.width,  // sWidth
-    photoCanvas.height,   // sHeight
-    0,  // dx
-    0,  // dy
-    photoCanvas.width, // dWidth
-    photoCanvas.height  // dHeight
-  );
 
   console.log({
     "selfieCam": selfieCam,
