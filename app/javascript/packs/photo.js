@@ -89,18 +89,6 @@ newPhotoButton.addEventListener("click", function(){
     );
   }
 
-  console.log({
-    "selfieCam": selfieCam,
-    "sx": sx,
-    "sy": sy,
-    "selfieCam.videoWidth": selfieCam.videoWidth,
-    "selfieCam.videoHeight": selfieCam.videoHeight,
-    "dx": 0,
-    "dy": 0,
-    "photoCanvas.width": photoCanvas.width,
-    "photoCanvas.height": photoCanvas.height
-  });
-
   
   const dataURL = photoCanvas.toDataURL();
   hiddenField.value = dataURL;
