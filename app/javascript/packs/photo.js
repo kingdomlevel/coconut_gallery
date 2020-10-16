@@ -13,13 +13,16 @@ const constraints = {
   video:{
     width:{
       min: 420,
+      max: 420,
       ideal: 420
     },
     height:{
       min: 580,
+      max: 580,
       ideal: 580
     },
-    facingMode: "user"
+    facingMode: "user",
+    aspectRatio: 0.72413793103
   }  
 };
 
@@ -44,11 +47,48 @@ getStartedButton.addEventListener("click", () => {
 
 //  Take photo:
 newPhotoButton.addEventListener("click", function(){
-  
-  photoCanvas.width = selfieCam.videoWidth;
-  photoCanvas.height = selfieCam.videoHeight;
-  
-  photoCanvas.getContext("2d").drawImage(selfieCam,0,0);
+  let sx;
+
+  // handle HTML portriat axes flip
+  if (window.screen.orientation.type == "portrait-primary") {
+    photoCanvas.width = selfieCam.videoHeight;
+    photoCanvas.height = selfieCam.videoWidth;
+    photoCanvas.style.transform = "scaleX(-1)";
+    sx = (selfieCam.videoWidth / 2) - (photoCanvas.width / 2);
+
+    // draw image
+    photoCanvas.getContext("2d").drawImage(
+      selfieCam,
+      sx,
+      0,
+      photoCanvas.width,  // sWidth
+      photoCanvas.height,   // sHeight
+      (sx * -1),  // dx
+      0,  // dy
+      photoCanvas.height, // dWidth
+      ((photoCanvas.height / photoCanvas.width) * photoCanvas.height)  // dHeight
+    );
+  } else {
+    photoCanvas.width = selfieCam.videoWidth;
+    photoCanvas.height = selfieCam.videoHeight;
+    photoCanvas.style.transform = "scaleX(-1)";
+    sx = (selfieCam.videoWidth / 2) - (photoCanvas.width / 2);
+    const sy = (selfieCam.videoHeight / 2) - (photoCanvas.height / 2);
+
+    // draw image
+    photoCanvas.getContext("2d").drawImage(
+      selfieCam,
+      sx,
+      sy,
+      photoCanvas.width,  // sWidth
+      photoCanvas.height,   // sHeight
+      0,  // dx
+      0,  // dy
+      photoCanvas.width, // dWidth
+      photoCanvas.height  // dHeight
+    );
+  }
+
   
   const dataURL = photoCanvas.toDataURL();
   hiddenField.value = dataURL;
